@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #f5a623; /* Poolapack gold/yellow */
+  --primary-hover: #d48a1a;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --bg-main: #ffffff;
+  --bg-sidebar: #f8f9fa;
+  --bg-active: #f0e6d2; /* Light gold for active state */
+  --border-color: #e5e5e5;
+  --alert-error-bg: #ffe6e6;
+  --alert-error-border: #ff4d4f;
+  --alert-info-bg: #e6f7ff;
+  --alert-info-border: #1890ff;
+  --alert-warning-bg: #fffbe6;
+  --alert-warning-border: #faad14;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Layout Utilities */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-main);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-marketplace {
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 0;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-title {
+  padding: 0 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.menu-group {
+  margin-bottom: 1rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-main);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 0.75rem;
+}
+
+.menu-item:hover {
+  background-color: var(--border-color);
+}
+
+.menu-item.active {
+  background-color: var(--bg-active);
+  color: var(--primary-hover);
+  border-left: 4px solid var(--primary-color);
+}
+
+.sub-menu {
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-menu-item {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.sub-menu-item:hover, .sub-menu-item.active {
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+/* QA Alert Box */
+.qa-alert {
+  padding: 1rem;
+  border-left: 4px solid;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.qa-alert.bug {
+  background-color: var(--alert-error-bg);
+  border-color: var(--alert-error-border);
+}
+
+.qa-alert.dev {
+  background-color: var(--alert-warning-bg);
+  border-color: var(--alert-warning-border);
+}
+
+.qa-alert.info {
+  background-color: var(--alert-info-bg);
+  border-color: var(--alert-info-border);
+}
+
+.qa-alert-content h4 {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.qa-alert-content p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 65px; /* Height of navbar */
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
+}
+
+/* ImageGuide Component Styling */
+.image-guide-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+.image-guide-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+}
+
+.image-guide-wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.image-guide-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-guide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.image-guide-wrapper:hover .image-guide-overlay {
+  opacity: 1;
+}
+
+.image-guide-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+.image-guide-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+
+.image-guide-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s;
+}
+
+.image-guide-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.image-guide-zoomed {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Step list layouts using grid */
+.step-item-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .step-item-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
