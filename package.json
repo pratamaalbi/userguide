@@ -1,5 +1,5 @@
 {
-  "name": "userguidenuxt",
+  "name": "poolapack-care",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,11 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "lucide-vue-next": "^1.0.0",
-    "nuxt": "^3.13.0",
-    "vue": "^3.5.0"
+    "@iconify-vue/ph": "^1.0.3",
+    "@iconify/vue": "^5.0.1",
+    "nuxt": "^3.15.4",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1"
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
   }
 }
