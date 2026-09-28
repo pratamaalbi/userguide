@@ -65,36 +65,36 @@ export const categories: Category[] = [
     title: 'Pesanan',
     description: 'Cara melacak, mengelola, dan membatalkan pesanan Anda',
     icon: '📦',
-    articleCount: 7,
+    articleCount: 12,
     subCategories: [
       { id: '2-1', name: 'Cara Memesan, Alamat & RFQ', articleCount: 4 },
       { id: '2-2', name: 'Lacak Pesanan', articleCount: 1 },
-      { id: '2-3', name: 'Pembatalan & Kelola Produk', articleCount: 2 }
+      { id: '2-3', name: 'Pembatalan, Kelola Pesanan & Produk', articleCount: 7 }
     ]
   },
   {
     id: '3',
-    slug: 'pembayaran',
-    title: 'Pembayaran',
-    description: 'Metode pembayaran resmi, rincian biaya (fee), dan pengembalian dana (refund)',
-    icon: '💳',
-    articleCount: 4,
-    subCategories: [
-      { id: '3-1', name: 'Metode Pembayaran & Fee', articleCount: 2 },
-      { id: '3-2', name: 'BCA & Virtual Account', articleCount: 1 },
-      { id: '3-3', name: 'Refund Dana', articleCount: 1 }
-    ]
-  },
-  {
-    id: '4',
     slug: 'pengiriman',
     title: 'Pengiriman',
     description: 'Informasi seputar pengiriman dan estimasi waktu tiba',
     icon: '🚚',
     articleCount: 2,
     subCategories: [
-      { id: '4-1', name: 'Jasa Pengiriman', articleCount: 1 },
-      { id: '4-2', name: 'Estimasi & Ongkir', articleCount: 1 }
+      { id: '3-1', name: 'Jasa Pengiriman', articleCount: 1 },
+      { id: '3-2', name: 'Estimasi & Ongkir', articleCount: 1 }
+    ]
+  },
+  {
+    id: '4',
+    slug: 'pembayaran',
+    title: 'Pembayaran',
+    description: 'Metode pembayaran resmi, rincian biaya (fee), dan pengembalian dana (refund)',
+    icon: '💳',
+    articleCount: 5,
+    subCategories: [
+      { id: '4-1', name: 'Metode Pembayaran & Fee', articleCount: 1 },
+      { id: '4-2', name: 'BCA & Virtual Account', articleCount: 2 },
+      { id: '4-3', name: 'Refund & Pencairan Dana', articleCount: 2 }
     ]
   },
   {
@@ -328,13 +328,14 @@ export const articles: Article[] = [
         label: 'Mobile (Web)',
         icon: 'ph:device-mobile-bold',
         toc: [
-          { id: 'mob-pass-langkah', text: '1. Langkah-Langkah Ganti Password' },
-          { id: 'mob-pass-kriteria', text: '2. Ketentuan Password yang Valid' }
+          { id: 'mob-pass-langkah', text: '1. Ganti Password (Sudah Login)' },
+          { id: 'mob-pass-lupa', text: '2. Reset Password (Lupa Password / Belum Login)' },
+          { id: 'mob-pass-kriteria', text: '3. Ketentuan Password yang Valid' }
         ],
         content: `
           <p>Panduan ini untuk kondisi Anda <strong>sudah login</strong> dan ingin mengganti password akun Poolapack melalui <strong>browser smartphone</strong>.</p>
 
-          <h2 id="mob-pass-langkah">1. Langkah-Langkah Ganti Password</h2>
+          <h2 id="mob-pass-langkah">1. Ganti Password (Sudah Login)</h2>
           <ol>
             <li>Pastikan Anda sudah <strong>login</strong> ke akun Poolapack, lalu buka halaman <strong>Akun</strong>.</li>
             <li>Ketuk ikon <strong>gerigi / pengaturan</strong> di pojok kanan atas halaman akun.</li>
@@ -356,7 +357,20 @@ export const articles: Article[] = [
             <li>Setelah OTP terverifikasi, Anda akan diarahkan ke halaman <strong>Ubah Password</strong> — masukkan password baru Anda, konfirmasikan, lalu ketuk <strong>Simpan</strong>.</li>
           </ol>
 
-          <h2 id="mob-pass-kriteria">2. Ketentuan Password yang Valid</h2>
+          <h2 id="mob-pass-lupa">2. Reset Password (Lupa Password / Belum Login)</h2>
+          <p>Jika Anda tidak dapat masuk ke akun Poolapack karena lupa kata sandi, ikuti langkah reset password berikut melalui browser smartphone:</p>
+          <ol>
+            <li>Buka browser di HP Anda dan kunjungi <strong>liva.poolapack.id</strong>.</li>
+            <li>Ketuk tombol <strong>Masuk / Daftar</strong> di pojok kanan atas beranda.</li>
+            <li>Masukkan alamat email yang terdaftar di akun Anda, lalu ketuk tombol <strong>Lanjutkan</strong>.</li>
+            <li>Pada halaman input password, ketuk tautan <strong>Lupa Kata Sandi?</strong> di bawah kolom input password.</li>
+            <li>Sistem Poolapack akan mengirimkan <strong>6 digit kode OTP verifikasi</strong> ke alamat email Anda (kode berlaku selama 5 menit).</li>
+            <li>Buka aplikasi email Anda, salin 6 digit kode OTP, lalu masukkan ke kolom verifikasi di browser.</li>
+            <li>Setelah OTP terverifikasi, masukkan kata sandi baru Anda dan ketik ulang pada kolom konfirmasi.</li>
+            <li>Ketuk <strong>Simpan Kata Sandi</strong>. Setelah berhasil diperbarui, silakan login kembali menggunakan password baru Anda.</li>
+          </ol>
+
+          <h2 id="mob-pass-kriteria">3. Ketentuan Password yang Valid</h2>
           <p>Password baru harus memenuhi 3 ketentuan berikut (ditandai centang hijau di layar):</p>
           <ul>
             <li>Minimal <strong>8 karakter</strong>.</li>
@@ -369,13 +383,14 @@ export const articles: Article[] = [
         label: 'Desktop (Web)',
         icon: 'ph:monitor-bold',
         toc: [
-          { id: 'dsk-pass-langkah', text: '1. Langkah-Langkah Ganti Password' },
-          { id: 'dsk-pass-kriteria', text: '2. Ketentuan Password yang Valid' }
+          { id: 'dsk-pass-langkah', text: '1. Ganti Password (Sudah Login)' },
+          { id: 'dsk-pass-lupa', text: '2. Reset Password (Lupa Password / Belum Login)' },
+          { id: 'dsk-pass-kriteria', text: '3. Ketentuan Password yang Valid' }
         ],
         content: `
           <p>Panduan ini untuk kondisi Anda <strong>sudah login</strong> dan ingin mengganti password akun Poolapack melalui <strong>browser desktop</strong>.</p>
 
-          <h2 id="dsk-pass-langkah">1. Langkah-Langkah Ganti Password</h2>
+          <h2 id="dsk-pass-langkah">1. Ganti Password (Sudah Login)</h2>
           <ol>
             <li>Pastikan Anda sudah <strong>login</strong>, lalu klik ikon <strong>profil</strong> di pojok kanan atas — Anda akan diarahkan ke halaman Profil.</li>
             <li>Di halaman Profil, temukan tombol <strong>Ubah Password</strong> (terletak di bawah tombol Verifikasi Identitas) lalu klik tombol tersebut.</li>
@@ -393,7 +408,20 @@ export const articles: Article[] = [
             <li>Setelah OTP terverifikasi, masukkan <strong>password baru</strong> Anda dan konfirmasikan, lalu klik <strong>Simpan</strong>.</li>
           </ol>
 
-          <h2 id="dsk-pass-kriteria">2. Ketentuan Password yang Valid</h2>
+          <h2 id="dsk-pass-lupa">2. Reset Password (Lupa Password / Belum Login)</h2>
+          <p>Jika Anda lupa password dan tidak dapat login ke website Poolapack, ikuti langkah reset password melalui browser komputer/laptop:</p>
+          <ol>
+            <li>Buka browser dan akses website <strong>liva.poolapack.id</strong>.</li>
+            <li>Klik tombol <strong>Masuk / Daftar</strong> di pojok kanan atas beranda.</li>
+            <li>Ketik alamat email akun Anda pada kolom yang tersedia, lalu klik <strong>Lanjutkan</strong>.</li>
+            <li>Pada tampilan input kata sandi, klik tautan <strong>Lupa Kata Sandi?</strong> di bawah kolom password.</li>
+            <li>Buka kotak masuk email Anda dan periksa pesan dari Poolapack yang berisi <strong>6 digit kode OTP verifikasi</strong> (berlaku 5 menit).</li>
+            <li>Masukkan 6 digit kode OTP tersebut ke formulir verifikasi di layar website.</li>
+            <li>Setelah terverifikasi, masukkan password baru Anda dan konfirmasikan sekali lagi sesuai ketentuan keamanan.</li>
+            <li>Klik tombol <strong>Simpan Kata Sandi</strong> untuk menyelesaikan pemulihan akun. Anda kini dapat login kembali menggunakan password baru.</li>
+          </ol>
+
+          <h2 id="dsk-pass-kriteria">3. Ketentuan Password yang Valid</h2>
           <p>Password baru harus memenuhi 3 ketentuan berikut (ditandai centang hijau di layar):</p>
           <ul>
             <li>Minimal <strong>8 karakter</strong>.</li>
@@ -681,7 +709,7 @@ export const articles: Article[] = [
     content: '',
     platforms: [
       {
-        label: 'Aplikasi Mobile',
+        label: 'Mobile (Web)',
         icon: 'ph:device-mobile-bold',
         toc: [
           { id: 'mob-pentingnya-alamat', text: 'Pentingnya Mengatur Alamat Pengiriman' },
@@ -831,7 +859,7 @@ export const articles: Article[] = [
     content: '',
     platforms: [
       {
-        label: 'Aplikasi Mobile',
+        label: 'Mobile (Web)',
         icon: 'ph:device-mobile-bold',
         toc: [
           { id: 'mob-apa-itu-rfq', text: 'Mengenal Fitur RFQ di Poolapack' },
@@ -930,7 +958,8 @@ export const articles: Article[] = [
           { id: 'dsk-akses-menu-rfq', text: '1. Klik Tombol Menu Cepat RFQ di Beranda Website' },
           { id: 'dsk-isi-formulir-rfq', text: '2. Isi Formulir Modal Request for Quotation' },
           { id: 'dsk-fitur-prioritaskan', text: 'Fitur Prioritaskan di RFQ (Biaya Komitmen Rp 1.000.000)' },
-          { id: 'dsk-konfirmasi-status-rfq', text: '3. Konfirmasi Pengajuan Selesai (RFQ Produk Terkirim)' }
+          { id: 'dsk-konfirmasi-status-rfq', text: '3. Konfirmasi Pengajuan Selesai (RFQ Produk Terkirim)' },
+          { id: 'dsk-manajemen-rfq', text: '4. Melihat Manajemen RFQ dari Menu Akun Desktop' }
         ],
         content: `
           <p>Bagi <strong>Pooler (Pembeli)</strong> yang mengakses website <strong>liva.poolapack.id</strong> melalui komputer atau laptop, pengajuan <strong>RFQ (Request for Quotation)</strong> memberikan keleluasaan dalam mengunggah spesifikasi detail kebutuhan kain kustom langsung ke jaringan produsen tekstil (<strong>Packer</strong>) Poolapack.</p>
@@ -991,6 +1020,29 @@ export const articles: Article[] = [
             <li><strong>Tindak Lanjut Tim Poolapack:</strong> Tim konsultan tekstil dan sourcing Poolapack akan segera meninjau spesifikasi kain Anda dan mencocokkannya ke pabrik mitra (Packer) untuk menyusun penawaran resmi.</li>
           </ul>
           <img src="/images/rfqdekstop/5.png" alt="Pop-up modal konfirmasi RFQ Produk terkirim dengan tombol Selesai di website desktop Poolapack" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-manajemen-rfq">4. Melihat Manajemen RFQ dari Menu Akun Desktop</h2>
+          <p>Setelah pengajuan RFQ berhasil dikirimkan, Anda dapat memantau daftar permintaan, penawaran harga dari pabrik mitra (Packer), serta progres tender kain melalui halaman manajemen akun:</p>
+          <ol>
+            <li>Pada halaman beranda website desktop <strong>liva.poolapack.id</strong>, klik tombol profil akun Anda (terletak di pojok kanan atas, ditandai dengan petunjuk panah putih).</li>
+          </ol>
+          <img src="/images/manajemendekstop/1rfq.png" alt="Tampilan beranda website desktop Poolapack dengan tombol profil akun di pojok kanan atas" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <ol start="2">
+            <li>Pada bilah navigasi menu di sisi kiri halaman Profil, klik menu <strong>Transaksi</strong> lalu pilih submenu <strong>RFQ</strong> (ditandai dengan petunjuk panah hitam).</li>
+          </ol>
+          <img src="/images/manajemendekstop/2rfq.png" alt="Halaman Profil akun Pooler dengan menu Transaksi dan submenu RFQ pada bilah navigasi kiri" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <ol start="3">
+            <li>Pada halaman <strong>Request for Quotation</strong>, Anda dapat melihat seluruh daftar permintaan kain kustom yang pernah diajukan, lengkap dengan nomor RFQ, tanggal permintaan, jenis produk kain, dan total kuantitas volume.</li>
+            <li>Gunakan tab filter (seperti <em>Produk</em>, <em>Manufaktur</em>, <em>Status Progres</em>, atau <em>Tanggal Permintaan</em>) untuk menyaring dan mencari pengajuan tender kain tertentu.</li>
+            <li>Klik tombol <strong>Lihat Produk</strong> untuk memeriksa kembali rincian spesifikasi kain yang diajukan, atau klik tombol <strong>Lihat Proses</strong> untuk memantau status respon dan penawaran dari pabrik rekanan.</li>
+          </ol>
+          <img src="/images/manajemendekstop/3rfq.png" alt="Halaman manajemen RFQ website desktop Poolapack yang menampilkan daftar pengajuan RFQ, filter progres, serta tombol Lihat Produk dan Lihat Proses" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <div class="callout callout-info">
+            <strong>Catatan tentang RFQ:</strong> Halaman Manajemen RFQ digunakan untuk melihat riwayat dan memantau progres penawaran harga dari pabrik, bukan untuk melacak pengiriman fisik pesanan. Karena RFQ merupakan proses pra-transaksi tender, PoolPoint mengikuti ketentuan transaksi reguler dan tidak otomatis diperoleh hanya dari pengajuan RFQ.
+          </div>
         `
       }
     ]
@@ -1142,11 +1194,12 @@ export const articles: Article[] = [
     slug: 'cara-batalkan-pesanan',
     title: 'Cara Membatalkan Pesanan',
     excerpt: 'Ketentuan dan cara membatalkan pesanan sebelum paket dikirimkan oleh gudang.',
+    audience: 'pembeli',
     category: 'pesanan',
     categoryTitle: 'Pesanan',
     subCategoryId: '2-3',
     readTime: 3,
-    lastUpdated: '30 Agustus 2026',
+    lastUpdated: '09 September 2026',
     tags: [
       'batal', 'batalkan pesanan', 'pembatalan', 'cancel order', 'cancel pesanan',
       'batal beli', 'alasan pembatalan', 'membatalkan', 'cancel', 'batal transaksi'
@@ -1186,8 +1239,8 @@ export const articles: Article[] = [
       <h2 id="opsi-pencairan-saldo">Pemanfaatan Saldo PoolPay &amp; Pencairan ke Bank</h2>
       <p>Saldo yang tersimpan di PoolPay sepenuhnya fleksibel untuk Anda gunakan:</p>
       <ol>
-        <li><strong>Digunakan Berbelanja Kembali:</strong> Saat Anda checkout produk lain (Pre Order maupun Ready Stock), pilih <em>PoolPay</em> sebagai metode pembayaran. Jika saldo tidak cukup, sistem mendukung pembayaran kombinasi dengan QRIS, Virtual Account, atau E-Wallet.</li>
-        <li><strong>Dicairkan ke Rekening Bank:</strong> Anda dapat mencairkan saldo PoolPay ke rekening bank pribadi Anda kapan saja melalui menu <em>Profil &rarr; Saldo PoolPay &rarr; Tarik Dana</em> (minimal penarikan Rp 10.000, estimasi 1–2 hari kerja dengan verifikasi keamanan OTP WhatsApp).</li>
+        <li><strong>Digunakan Berbelanja Kembali:</strong> Saat Anda checkout produk lain (Pre Order maupun Ready Stock), pilih <em>PoolPay</em> sebagai metode pembayaran. Jika saldo PoolPay Anda tidak mencukupi untuk melunasi seluruh tagihan, Anda dapat memanfaatkan fitur <strong>+ Tambah Split Pembayaran</strong> untuk mengombinasikannya dengan channel pembayaran resmi Poolapack lainnya (seperti Virtual Account Bank atau BCA Transfer / Espay).</li>
+        <li><strong>Dicairkan ke Rekening Bank:</strong> Anda dapat mengajukan pencairan saldo PoolPay ke rekening bank pribadi melalui menu <em>Profil &rarr; Saldo PoolPay &rarr; Tarik Dana</em>. Pengajuan akan diperiksa dan dikonfirmasi terlebih dahulu oleh admin Poolapack sebelum diproses.</li>
       </ol>
       <div class="callout callout-info">
         Untuk panduan detail lengkap seputar saldo digital dan pencairan dana, silakan baca artikel <a href="/article/cara-ajukan-refund" class="text-amber-700 underline font-bold">Cara Mengajukan Pengembalian Dana (Refund)</a> atau <a href="/article/apa-itu-poolpay" class="text-amber-700 underline font-bold">Apa Itu PoolPay</a>.
@@ -1203,7 +1256,7 @@ export const articles: Article[] = [
     excerpt: 'Daftar lengkap 8 opsi pembayaran resmi Poolapack (Virtual Account & BCA), saldo PoolPay, fitur Split Pembayaran, serta rincian variasi biaya pembayaran (fee).',
     category: 'pembayaran',
     categoryTitle: 'Pembayaran',
-    subCategoryId: '3-1',
+    subCategoryId: '4-1',
     readTime: 4,
     lastUpdated: '08 September 2026',
     audience: 'pembeli',
@@ -1254,7 +1307,7 @@ export const articles: Article[] = [
         <li><strong>Otomatis dari Refund:</strong> Jika pesanan yang sudah Anda bayar dibatalkan oleh admin (misalnya karena kendala teknis pabrik Packer atau stok mendadak kosong), dana dikembalikan 100% secara otomatis ke saldo PoolPay Anda.</li>
         <li><strong>Pembayaran Penuh via PoolPay:</strong> Jika saldo PoolPay mencukupi total transaksi, pesanan langsung terbayar lunas seketika tanpa biaya admin tambahan.</li>
         <li><strong>Fitur "+ Tambah Split Pembayaran":</strong> Jika saldo PoolPay Anda kurang dari total belanja, klik tombol <strong>+ Tambah Split Pembayaran</strong>. Anda dapat menggunakan seluruh saldo PoolPay untuk memotong tagihan, lalu membayar sisa kekurangannya menggunakan salah satu dari 8 metode di atas (misal via BCA Transfer atau Mandiri VA).</li>
-        <li><strong>Dapat Dicairkan:</strong> Saldo PoolPay sepenuhnya milik Anda dan dapat dicairkan ke rekening bank pribadi kapan saja (minimal penarikan Rp 10.000, verifikasi OTP WhatsApp, cair 1–2 hari kerja).</li>
+        <li><strong>Dapat Dicairkan:</strong> Saldo PoolPay dapat diajukan untuk dicairkan ke rekening bank pribadi dengan minimum penarikan Rp 10.000. Pencairan tidak langsung cair otomatis karena harus menunggu pemeriksaan dan konfirmasi admin Poolapack.</li>
       </ul>
 
       <h2 id="countdown-verifikasi">Batas Waktu Pembayaran &amp; Verifikasi Otomatis</h2>
@@ -1274,7 +1327,7 @@ export const articles: Article[] = [
     excerpt: 'Tutorial langkah demi langkah membayar tagihan Virtual Account melalui ATM, Mobile Banking (Livin, BRImo, BNI Mobile, OCTO Mobile), dan Internet Banking.',
     category: 'pembayaran',
     categoryTitle: 'Pembayaran',
-    subCategoryId: '3-2',
+    subCategoryId: '4-2',
     readTime: 4,
     lastUpdated: '08 September 2026',
     audience: 'pembeli',
@@ -1347,7 +1400,7 @@ export const articles: Article[] = [
     excerpt: 'Panduan lengkap pembayaran transaksi melalui BCA Transfer manual/otomatis dan layanan instan BCA Espay di Poolapack.',
     category: 'pembayaran',
     categoryTitle: 'Pembayaran',
-    subCategoryId: '3-1',
+    subCategoryId: '4-2',
     readTime: 3,
     lastUpdated: '08 September 2026',
     audience: 'pembeli',
@@ -1411,7 +1464,7 @@ export const articles: Article[] = [
     excerpt: 'Prosedur dan alur pengembalian dana transaksi yang dibatalkan langsung ke saldo digital PoolPay Anda.',
     category: 'pembayaran',
     categoryTitle: 'Pembayaran',
-    subCategoryId: '3-3',
+    subCategoryId: '4-3',
     readTime: 4,
     lastUpdated: '08 September 2026',
     audience: 'pembeli',
@@ -1452,8 +1505,8 @@ export const articles: Article[] = [
       <p>Jika Anda memilih untuk mencairkan saldo PoolPay ke rekening bank, ikuti ketentuan berikut:</p>
       <ul>
         <li><strong>Minimal Penarikan:</strong> Rp 10.000 per transaksi penarikan dana.</li>
-        <li><strong>Verifikasi Keamanan:</strong> Setiap permintaan penarikan diamankan dengan kode OTP yang dikirim ke nomor WhatsApp terdaftar Anda.</li>
-        <li><strong>Estimasi Dana Masuk:</strong> 1–2 hari kerja ke rekening bank terdaftar Anda.</li>
+        <li><strong>Konfirmasi Admin:</strong> Setiap pengajuan penarikan akan diperiksa dan dikonfirmasi terlebih dahulu oleh admin Poolapack.</li>
+        <li><strong>Proses Pencairan:</strong> Dana belum langsung masuk setelah pengajuan dikirim. Pantau log atau status pencairan sampai pengajuan selesai diproses oleh Poolapack.</li>
       </ul>
       <div class="callout callout-warning">
         <strong>Penting:</strong> Pastikan nomor rekening dan nama pemilik rekening bank sudah sesuai dan terverifikasi di profil akun Poolapack Anda sebelum melakukan pencairan saldo.
@@ -1467,11 +1520,12 @@ export const articles: Article[] = [
     slug: 'jasa-pengiriman-tersedia',
     title: 'Jasa Pengiriman yang Bekerjasama dengan Poolapack',
     excerpt: 'Daftar kurir instant, reguler, same-day, dan ekspedisi kargo resmi untuk kebutuhan grosir.',
+    audience: 'pembeli',
     category: 'pengiriman',
     categoryTitle: 'Pengiriman',
-    subCategoryId: '4-1',
+    subCategoryId: '3-1',
     readTime: 3,
-    lastUpdated: '04 September 2026',
+    lastUpdated: '09 September 2026',
     tags: [
       'pengiriman', 'kurir', 'ekspedisi', 'kargo', 'jne', 'sicepat', 'jnt', 'gosend',
       'grabexpress', 'sentral cargo', 'dakota', 'antar barang', 'ongkir', 'ongkos kirim',
@@ -1490,7 +1544,7 @@ export const articles: Article[] = [
       </ul>
 
       <h2 id="kurir-kargo">Ekspedisi Kargo (Heavy Duty)</h2>
-      <p>Bagi pelaku bisnis yang memesan packaging dalam jumlah kartonan besar atau berat > 10kg, kami menyediakan layanan kargo hemat ongkir:</p>
+      <p>Bagi pelaku usaha konveksi atau garmen yang memesan kain dalam jumlah gulungan / roll besar atau berat > 10kg, kami menyediakan layanan kargo hemat ongkir:</p>
       <ul>
         <li><strong>JNE Trucking (JTR)</strong></li>
         <li><strong>Sentral Cargo</strong></li>
@@ -1503,11 +1557,12 @@ export const articles: Article[] = [
     slug: 'estimasi-waktu-pengiriman',
     title: 'Estimasi Waktu dan Jadwal Operasional Pengiriman',
     excerpt: 'Informasi jam cut-off pemrosesan pesanan di gudang dan estimasi paket sampai di alamat Anda.',
+    audience: 'pembeli',
     category: 'pengiriman',
     categoryTitle: 'Pengiriman',
-    subCategoryId: '4-2',
+    subCategoryId: '3-2',
     readTime: 2,
-    lastUpdated: '02 September 2026',
+    lastUpdated: '09 September 2026',
     tags: [
       'estimasi pengiriman', 'berapa lama sampai', 'jam kirim', 'cut off', 'jadwal pengiriman',
       'lama pengiriman', 'ongkir', 'kapan sampai', 'waktu sampai', 'jadwal gudang',
@@ -1539,115 +1594,1361 @@ export const articles: Article[] = [
     id: '18',
     slug: 'cara-daftar-akun-seller',
     title: 'Cara Mendaftar sebagai Packer (Penjual) di Poolapack',
-    excerpt: 'Panduan visual langkah demi langkah mendaftar akun Packer (penjual/produsen pabrik) melalui menu profil akun di marketplace Poolapack.',
+    excerpt: 'Panduan visual langkah demi langkah mendaftar dan verifikasi akun Packer (penjual/produsen pabrik) melalui menu profil akun di marketplace Poolapack versi Mobile Web dan Desktop.',
     category: 'akun-keamanan',
     categoryTitle: 'Akun & Keamanan',
     subCategoryId: '1-1',
     readTime: 3,
-    lastUpdated: '09 September 2026',
+    lastUpdated: '17 September 2026',
     audience: 'penjual',
     tags: [
       'daftar seller', 'registrasi seller', 'akun merchant', 'packer', 'daftar packer', 'buka toko',
       'seller poolapack', 'jadi seller', 'pendaftaran penjual', 'packer center', 'daftar akun packer',
-      'nama perusahaan', 'mitra packer', 'profil kanan atas', 'daftar jadi packer'
+      'nama perusahaan', 'mitra packer', 'profil kanan atas', 'daftar jadi packer', 'verifikasi packer',
+      'verif packer', 'email bisnis', 'whatsapp bisnis', 'formulir packer', 'pendaftaran packer', 'akun packer'
     ],
     toc: [
-      { id: 'akses-menu-profil', text: '1. Klik Profil Akun di Kanan Atas' },
-      { id: 'halaman-packer-center', text: '2. Klik "Daftar Akun Packer" di Packer Center' },
-      { id: 'isi-formulir-packer', text: '3. Isi Data Pendaftaran Akun Packer' },
-      { id: 'verifikasi-toko-packer', text: '4. Verifikasi dan Mulai Berjualan' }
+      { id: 'klik-daftar-packer', text: '1. Klik Tombol "Daftar Jadi Packer"' },
+      { id: 'gerbang-packer-center', text: '2. Masuk ke Halaman Packer Center' },
+      { id: 'isi-formulir-packer', text: '3. Mengisi Formulir Pendaftaran Akun Packer' },
+      { id: 'verifikasi-toko-packer', text: '4. Verifikasi dan Akses Dashboard Packer' }
     ],
-    content: `
-      <p>Bagi Anda produsen kain, konveksi, maupun pabrik packaging yang ingin menjual produk tangan pertama langsung ke pembeli (Pooler), Anda dapat mendaftarkan akun sebagai <strong>Packer</strong> melalui marketplace Poolapack.</p>
-      <p>Berikut langkah-langkah resmi pendaftaran Packer langsung dari akun Anda:</p>
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-klik-daftar-packer', text: '1. Masuk ke Halaman Akun & Klik "Daftar Jadi Packer"' },
+          { id: 'mob-gerbang-packer-center', text: '2. Masuk ke Halaman Packer Center' },
+          { id: 'mob-isi-formulir-packer', text: '3. Mengisi Formulir Pendaftaran Akun Packer' },
+          { id: 'mob-verifikasi-toko-packer', text: '4. Verifikasi dan Akses Dashboard Packer' }
+        ],
+        content: `
+          <p>Bagi Anda produsen kain, konveksi, maupun pabrik packaging yang ingin menjual produk tangan pertama langsung ke pembeli (Pooler) melalui browser smartphone (Mobile Web), Anda dapat mendaftarkan akun sebagai <strong>Packer</strong> di Poolapack.</p>
 
-      <h2 id="akses-menu-profil">1. Klik Profil Akun di Kanan Atas</h2>
-      <ol>
-        <li>Masuk (Login) ke akun Poolapack Anda di <strong>liva.poolapack.id</strong>.</li>
-        <li>Pada bagian pojok kanan atas halaman, klik <strong>ikon / foto profil akun</strong> Anda (yang bertuliskan sapaan seperti <em>"Hi, Nama Anda..."</em>).</li>
-        <li>Menu dropdown profil akan terbuka menampilkan ringkasan akun (PoolPoint, PoolCoin, PoolPay, Transaksi, dan Wishlist).</li>
-        <li>Pada bagian bawah menu dropdown tersebut, klik tombol kuning bertuliskan <strong>"Daftar Jadi Packer"</strong>.</li>
-      </ol>
+          <div class="callout callout-info">
+            <strong>Kondisi Awal (Prasyarat):</strong> Sebelum mendaftar sebagai Packer, pastikan Anda <strong>sudah login (masuk)</strong> ke akun Poolapack Anda di browser smartphone. Jika belum memiliki akun, silakan daftar akun terlebih dahulu.
+          </div>
 
-      <h2 id="halaman-packer-center">2. Klik "Daftar Akun Packer" di Packer Center</h2>
-      <ol>
-        <li>Sistem akan mengarahkan Anda ke tampilan gerbang <strong>Packer Center</strong> dengan keterangan:<br>
-          <em>"Profil Packer belum terdaftar, daftar untuk mulai menjual produk."</em></li>
-        <li>Klik tombol kuning <strong>"Daftar Akun Packer"</strong> untuk membuka formulir registrasi toko/pabrik.</li>
-      </ol>
-      <div class="callout callout-info">
-        <strong>Catatan:</strong> Jika Anda belum ingin melanjutkan pendaftaran saat ini, Anda dapat mengklik teks <em>"&lt; Kembali ke halaman utama"</em> di bawah tombol.
-      </div>
+          <h2 id="mob-klik-daftar-packer">1. Masuk ke Halaman Akun &amp; Klik "Daftar Jadi Packer"</h2>
+          <p>Setelah berhasil login ke akun Anda di browser smartphone, ikuti langkah berikut:</p>
+          <ol>
+            <li>Buka <strong>Halaman Akun</strong> dengan mengetuk ikon profil/akun pada bilah navigasi bawah (bottom navigation bar).</li>
+            <li>Ketuk tombol <strong>"Daftar Jadi Packer"</strong> tersebut untuk memulai alur pendaftaran toko/pabrik.</li>
+          </ol>
+          <img src="/images/verifpackermobile/1.png" alt="Halaman Akun pada Mobile Web dengan tombol Daftar Jadi Packer" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
 
-      <h2 id="isi-formulir-packer">3. Isi Data Pendaftaran Akun Packer</h2>
-      <p>Pada kartu <strong>Pendaftaran Akun Packer</strong> (<em>Isi data profil untuk mendaftar akun</em>), lengkapi 3 data bisnis utama Anda:</p>
-      <ul>
-        <li><strong>Nama Perusahaan:</strong> Masukkan nama resmi badan usaha, nama brand, pabrik kain, atau konveksi Anda (contoh: <em>Poolapack Textile</em>).</li>
-        <li><strong>Email:</strong> Masukkan alamat email bisnis aktif yang dapat digunakan untuk notifikasi pesanan dan korespondensi resmi (contoh: <em>textile@store.com</em>).</li>
-        <li><strong>Nomor Telepon:</strong> Masukkan nomor telepon / WhatsApp yang valid lengkap dengan kode nomor (contoh: <em>6281234567890</em>) untuk koordinasi pengiriman pesanan.</li>
-      </ul>
-      <p>Setelah seluruh kolom terisi dengan data yang valid, klik tombol kuning <strong>"Daftar Akun"</strong>.</p>
+          <h2 id="mob-gerbang-packer-center">2. Masuk ke Halaman Packer Center</h2>
+          <p>Setelah menekan tombol sebelumnya, sistem akan mengarahkan Anda ke halaman perantara (gerbang) <strong>Packer Center</strong> dengan keterangan:</p>
+          <blockquote><em>"Profil Packer belum terdaftar, daftar untuk mulai menjual produk."</em></blockquote>
+          <p>Pada halaman ini tersedia 2 pilihan tindakan:</p>
+          <ul>
+            <li><strong>Tombol kuning "Daftar Akun Packer":</strong> Ketuk tombol ini untuk langsung menuju ke halaman formulir pengisian data pendaftaran.</li>
+            <li><strong>Tautan link "← Kembali ke halaman utama":</strong> Jika Anda ingin membatalkan atau kembali ke halaman sebelumnya / beranda utama, ketuk tautan ini.</li>
+          </ul>
+          <img src="/images/verifpackermobile/2.png" alt="Halaman gerbang Packer Center dengan tombol Daftar Akun Packer dan link kembali di Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
 
-      <h2 id="verifikasi-toko-packer">4. Verifikasi dan Mulai Berjualan</h2>
-      <p>Setelah formulir berhasil dikirim:</p>
-      <ul>
-        <li>Data profil usaha Anda akan masuk ke antrean kurasi tim onboarding Packer Poolapack.</li>
-        <li>Tim Poolapack akan memvalidasi data kontak dan profil usaha Anda untuk menjaga standar mutu marketplace.</li>
-        <li>Setelah akun disetujui, Anda dapat langsung mengakses dashboard <strong>Packer Center</strong> untuk mengunggah katalog produk (baik kategori <strong>Flash Sale</strong>, <strong>Pre Order</strong>, maupun <strong>Ready Stock</strong>), mengatur kuantitas MOQ, dan menerima pesanan dari ribuan Pooler.</li>
-      </ul>
-      <div class="callout callout-info">
-        <strong>Tips Sukses Packer:</strong> Pastikan nomor WhatsApp dan email yang Anda daftarkan aktif agar tim kurasi Poolapack dapat segera mengonfirmasi pembukaan toko Anda tanpa kendala.
-      </div>
-    `
+          <h2 id="mob-isi-formulir-packer">3. Mengisi Formulir Pendaftaran Akun Packer</h2>
+          <p>Setelah mengetuk tombol <em>"Daftar Akun Packer"</em>, Anda akan dialihkan ke formulir <strong>Pendaftaran Akun Packer</strong> (<em>Isi data berikut untuk mendaftarkan akun Packer Anda.</em>). Lengkapi seluruh kolom data bisnis Anda yang valid:</p>
+          <ul>
+            <li><strong>Nama Perusahaan:</strong> Masukkan nama resmi badan usaha, nama brand, pabrik kain, atau konveksi Anda (contoh: <em>PT Poolapack Sejahtera</em>).</li>
+            <li><strong>Email Bisnis:</strong> Masukkan alamat email bisnis aktif yang dapat diakses (contoh: <em>bisnis@perusahaan.com</em>). Email ini digunakan untuk korespondensi resmi, notifikasi pesanan masuk, dan konfirmasi akun.</li>
+            <li><strong>Nomor Telepon / WhatsApp Bisnis:</strong> Masukkan nomor telepon atau WhatsApp operasional bisnis yang aktif pada kolom berawalan <strong>+62</strong> (contoh: <em>81234567890</em>). Nomor ini sangat penting untuk koordinasi pesanan dan kurir logistik.</li>
+          </ul>
+          <p>Setelah memastikan seluruh data terisi dengan benar dan lengkap, ketuk tombol kuning <strong>"Daftar Akun Packer"</strong> di bagian bawah layar untuk mengirimkan data pendaftaran.</p>
+          <img src="/images/verifpackermobile/3.png" alt="Formulir Pendaftaran Akun Packer dengan input nama perusahaan, email bisnis, dan nomor whatsapp di Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-verifikasi-toko-packer">4. Verifikasi dan Akses Dashboard Packer</h2>
+          <p>Setelah formulir pendaftaran berhasil dikirim:</p>
+          <ul>
+            <li>Data profil bisnis Anda akan masuk ke antrean verifikasi tim onboarding Packer Poolapack.</li>
+            <li>Tim Poolapack akan melakukan kurasi dan validasi data kontak serta profil usaha Anda guna menjaga kualitas dan keamanan ekosistem perdagangan.</li>
+            <li>Setelah verifikasi disetujui, akun Anda resmi berstatus sebagai <strong>Packer</strong> dan Anda dapat langsung mengakses dashboard <strong>Packer Center</strong> untuk mengunggah katalog produk (Flash Sale, Pre Order, maupun Ready Stock), menentukan kuantitas MOQ, dan menerima pesanan dari ribuan Pooler.</li>
+          </ul>
+          <div class="callout callout-info">
+            <strong>Tips Onboarding Packer:</strong> Pastikan nomor WhatsApp dan email bisnis yang Anda daftarkan selalu aktif agar tim kurasi Poolapack dapat menghubungi Anda dengan cepat jika diperlukan konfirmasi tambahan.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-klik-daftar-packer', text: '1. Arahkan Kursor ke Profil & Klik "Daftar Jadi Packer"' },
+          { id: 'dsk-gerbang-packer-center', text: '2. Masuk ke Halaman Packer Center' },
+          { id: 'dsk-isi-formulir-packer', text: '3. Mengisi Formulir Pendaftaran Akun Packer' },
+          { id: 'dsk-verifikasi-toko-packer', text: '4. Verifikasi dan Akses Dashboard Packer' }
+        ],
+        content: `
+          <p>Bagi Anda pemilik pabrik tekstil, distributor kain, maupun manufaktur kemasan yang mengakses platform Poolapack melalui komputer atau laptop (Desktop Web), berikut panduan lengkap mendaftarkan akun sebagai <strong>Packer</strong>:</p>
+
+          <div class="callout callout-info">
+            <strong>Kondisi Awal (Prasyarat):</strong> Pengguna wajib dalam kondisi <strong>sudah login (masuk)</strong> ke akun Poolapack di browser desktop sebelum dapat menemukan tombol pendaftaran Packer.
+          </div>
+
+          <h2 id="dsk-klik-daftar-packer">1. Arahkan Kursor ke Profil &amp; Klik "Daftar Jadi Packer"</h2>
+          <p>Setelah Anda login ke website Poolapack di desktop:</p>
+          <ol>
+            <li>Perhatikan bilah navigasi atas (navbar). Pada bagian <strong>pojok kanan atas</strong> layar, arahkan kursor (hover) atau klik pada <strong>menu profil akun</strong> Anda (ikon profil bertuliskan sapaan nama Anda).</li>
+            <li>Menu popover / dropdown profil akun akan terbuka menampilkan ringkasan data profil dan navigasi akun.</li>
+            <li>Di bagian paling bawah menu dropdown tersebut, Anda akan melihat tombol berwarna kuning bertuliskan <strong>"Daftar Jadi Packer"</strong>.</li>
+            <li>Klik tombol <strong>"Daftar Jadi Packer"</strong> tersebut untuk memulai proses pendaftaran.</li>
+          </ol>
+          <img src="/images/verifpackerdekstop/packer1.jpeg" alt="Menu dropdown profil di pojok kanan atas desktop dengan tombol Daftar Jadi Packer" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-gerbang-packer-center">2. Masuk ke Halaman Packer Center</h2>
+          <p>Setelah mengklik tombol "Daftar Jadi Packer", Anda akan diarahkan ke halaman gerbang <strong>Packer Center</strong> dengan notifikasi status:</p>
+          <blockquote><em>"Profil Packer belum terdaftar, daftar untuk mulai menjual produk."</em></blockquote>
+          <p>Di halaman ini terdapat 2 opsi navigasi:</p>
+          <ul>
+            <li><strong>Tombol kuning "Daftar Akun Packer":</strong> Klik tombol ini untuk diarahkan ke halaman pengisian formulir pendaftaran akun Packer.</li>
+            <li><strong>Tautan link "← Kembali ke halaman utama":</strong> Jika Anda ingin membatalkan atau kembali ke halaman sebelumnya / beranda, klik tautan ini.</li>
+          </ul>
+          <img src="/images/verifpackerdekstop/packer2.png" alt="Halaman gerbang Packer Center dengan tombol Daftar Akun Packer dan link kembali di desktop" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-isi-formulir-packer">3. Mengisi Formulir Pendaftaran Akun Packer</h2>
+          <p>Setelah menekan tombol <em>"Daftar Akun Packer"</em>, Anda akan masuk ke halaman kartu <strong>Pendaftaran Akun Packer</strong> (<em>Isi data berikut untuk mendaftarkan akun Packer Anda.</em>). Lengkapi data bisnis Anda:</p>
+          <ul>
+            <li><strong>Nama Perusahaan:</strong> Masukkan nama resmi entitas usaha, PT/CV, pabrik kain, atau merk dagang Anda (contoh: <em>PT Poolapack Sejahtera</em>).</li>
+            <li><strong>Email Bisnis:</strong> Masukkan alamat email bisnis aktif untuk korespondensi resmi dan menerima informasi transaksi (contoh: <em>bisnis@perusahaan.com</em>).</li>
+            <li><strong>Nomor Telepon / WhatsApp Bisnis:</strong> Masukkan nomor telepon atau WhatsApp operasional usaha pada kolom berawalan <strong>+62</strong> (contoh: <em>81234567890</em>) untuk koordinasi pengiriman pesanan dan kurir.</li>
+          </ul>
+          <p>Setelah semua informasi terisi dengan benar dan lengkap, klik tombol kuning <strong>"Daftar Akun Packer"</strong> di bawah form untuk mengirimkan formulir.</p>
+          <img src="/images/verifpackerdekstop/packer3.png" alt="Formulir Pendaftaran Akun Packer di desktop dengan input data perusahaan, email bisnis, dan no telepon" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-verifikasi-toko-packer">4. Verifikasi dan Akses Dashboard Packer</h2>
+          <p>Setelah formulir pendaftaran berhasil dikirim:</p>
+          <ul>
+            <li>Data bisnis Anda akan masuk ke tahap verifikasi oleh tim onboarding Poolapack.</li>
+            <li>Tim Poolapack akan memeriksa validitas kontak dan legalitas bisnis untuk menjamin transaksi yang aman bagi seluruh pembeli (Pooler).</li>
+            <li>Setelah akun disetujui, Anda dapat langsung mengakses dashboard <strong>Packer Center</strong> untuk mengelola katalog produk grosir (Flash Sale, Pre Order, Ready Stock), menetapkan harga per roll/yard, dan memproses pesanan yang masuk.</li>
+          </ul>
+          <div class="callout callout-info">
+            <strong>Tips Onboarding Packer:</strong> Pastikan email bisnis dan nomor WhatsApp yang didaftarkan aktif agar konfirmasi persetujuan akun dapat diterima secara tepat waktu.
+          </div>
+        `
+      }
+    ]
   },
   {
-    id: '20',
-    slug: 'cara-atur-produk-stok-harga',
-    title: 'Cara Mengelola Produk, Stok, dan Harga Jual di Dashboard Packer',
-    excerpt: 'Panduan menambahkan produk baru, mengatur variasi, memperbarui harga, dan memonitor stok bagi Packer di Poolapack.',
+    id: '21',
+    slug: 'cara-upload-produk-di-packer-center',
+    title: 'Cara Upload Produk di Halaman Packer',
+    excerpt: 'Panduan visual langkah demi langkah mengupload produk dari menu Produk di Packer Center, mulai dari foto dan informasi produk, membuat varian, mengatur posting, hingga publish produk.',
+    category: 'pesanan',
+    categoryTitle: 'Pesanan',
+    subCategoryId: '2-3',
+    readTime: 8,
+    lastUpdated: '17 September 2026',
+    audience: 'penjual',
+    tags: [
+      'upload produk', 'unggah produk', 'cara upload produk', 'tambah produk', 'produk packer',
+      'packer center', 'dashboard packer', 'tambah katalog', 'foto produk', 'deskripsi produk',
+      'harga produk', 'stok produk', 'moq produk', 'flash sale', 'pre order', 'ready stock',
+      'publikasi produk', 'jual produk', 'produk seller', 'penjual'
+    ],
+    toc: [
+      { id: 'persiapan-upload-produk', text: '1. Siapkan Data Produk' },
+      { id: 'akses-menu-produk', text: '2. Buka Menu Tambahkan Produk' },
+      { id: 'upload-media-produk', text: '3. Upload Thumbnail, Foto, dan Video' },
+      { id: 'isi-informasi-produk', text: '4. Isi Informasi dan Deskripsi Produk' },
+      { id: 'buat-variant-produk', text: '5. Buat dan Simpan Variant Produk' },
+      { id: 'atur-detail-posting', text: '6. Atur Detail Posting' },
+      { id: 'publish-produk', text: '7. Periksa dan Publish Produk' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-persiapan-upload-produk', text: '1. Siapkan Data Produk' },
+          { id: 'mob-akses-menu-produk', text: '2. Buka Menu Tambahkan Produk' },
+          { id: 'mob-upload-media-produk', text: '3. Upload Thumbnail, Foto, dan Video' },
+          { id: 'mob-isi-informasi-produk', text: '4. Isi Informasi dan Deskripsi Produk' },
+          { id: 'mob-buat-variant-produk', text: '5. Buat dan Simpan Variant Produk' },
+          { id: 'mob-atur-detail-posting', text: '6. Atur Detail Posting' },
+          { id: 'mob-publish-produk', text: '7. Periksa dan Publish Produk' }
+        ],
+        content: `
+          <p>Panduan ini menjelaskan alur upload produk dari awal sampai produk dipublikasikan melalui <strong>Packer Center</strong> di browser smartphone. Ikuti langkah secara berurutan agar data produk dan variannya tersimpan dengan benar.</p>
+
+          <h2 id="mob-persiapan-upload-produk">1. Siapkan Data Produk</h2>
+          <p>Sebelum membuka formulir, siapkan hal-hal berikut agar proses upload tidak terhenti di tengah jalan:</p>
+          <ul>
+            <li>Nama produk, satuan penjualan, dan deskripsi produk.</li>
+            <li>Data teknis produk: jenis benang lusi, jenis benang pakan, produk olahan, dan <em>technique</em> sesuai produk Anda.</li>
+            <li>Satu foto utama untuk thumbnail serta foto-foto produk lainnya. Format yang diterima adalah <strong>.jfif, .jpg, .jpeg, atau .png</strong> dengan ukuran maksimal <strong>2 MB per foto</strong>.</li>
+            <li>Data setiap varian, misalnya nama varian, foto, grade, gramasi, lebar, dan warna.</li>
+            <li>Video produk (opsional) dalam format MP4 dengan durasi 10–30 detik.</li>
+          </ul>
+          <div class="callout callout-warning">
+            Gunakan foto dan informasi yang sesuai dengan produk asli. Hindari mengupload produk palsu atau konten yang melanggar hak kekayaan intelektual.
+          </div>
+
+          <h2 id="mob-akses-menu-produk">2. Buka Menu Tambahkan Produk</h2>
+          <p>Pastikan Anda sudah login dan berada di dashboard Packer Center.</p>
+
+          <h3>Langkah 2.1 — Buka Menu</h3>
+          <p>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</p>
+          <img src="/images/aploadmobile/1.png" alt="Langkah 2.1: Dashboard Packer Center dengan ikon menu di pojok kiri atas pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h3>Langkah 2.2 — Pilih Produk</h3>
+          <p>Setelah panel navigasi terbuka, ketuk menu <strong>Produk</strong>.</p>
+          <img src="/images/aploadmobile/2.png" alt="Langkah 2.2: Panel navigasi Packer Center dengan menu Produk pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h3>Langkah 2.3 — Pilih Tambahkan Produk</h3>
+          <p>Ketuk <strong>Tambahkan Produk</strong> pada submenu Produk. Sistem akan membuka halaman <strong>Unggah Produk Baru</strong>.</p>
+          <img src="/images/aploadmobile/3.png" alt="Langkah 2.3: Submenu Produk dengan pilihan Tambahkan Produk pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-upload-media-produk">3. Upload Thumbnail, Foto, dan Video</h2>
+          <p>Bagian pertama pada halaman <strong>Unggah Produk Baru</strong> adalah media produk. Selesaikan semua media berikut sebelum melanjutkan ke informasi produk.</p>
+
+          <h3>Langkah 3.1 — Upload Media Produk</h3>
+          <ul>
+            <li>Ketuk ikon <strong>+</strong> pada <strong>Gambar Detail Produk untuk Thumbnail</strong>, lalu pilih foto utama produk. Gunakan foto dengan pencahayaan rata dan bentuk produk yang terlihat jelas.</li>
+            <li>Ketuk ikon <strong>+</strong> pada <strong>Upload Foto Produk</strong> untuk menambahkan foto pendukung. Perhatikan angka pada kotak upload; sistem menyediakan maksimal <strong>7 foto</strong>.</li>
+            <li>Jika ingin menambahkan video, ketuk ikon <strong>+</strong> pada <strong>Upload Video</strong>, lalu pilih file MP4 berdurasi 10–30 detik.</li>
+          </ul>
+          <img src="/images/aploadmobile/4.png" alt="Form upload foto thumbnail, foto produk, dan video pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            <strong>Bedanya thumbnail dan foto produk:</strong> thumbnail adalah foto utama yang mewakili produk pada katalog; foto produk adalah gambar tambahan untuk menunjukkan detail, warna, atau sudut lain dari produk.
+          </div>
+
+          <h2 id="mob-isi-informasi-produk">4. Isi Informasi dan Deskripsi Produk</h2>
+          <h3>Langkah 4.1 — Lengkapi Informasi Produk</h3>
+          <p>Scroll ke bagian <strong>Informasi Produk</strong>, lalu isi semua kolom yang bertanda bintang (<strong>*</strong>):</p>
+          <ol>
+            <li><strong>Nama Produk:</strong> Gunakan nama spesifik, misalnya <em>Kain Oxford Polyester Putih</em>, bukan hanya <em>Kain Putih</em>.</li>
+            <li><strong>Satuan:</strong> Pilih satuan yang benar-benar digunakan saat menjual produk, misalnya yard, meter, roll, atau pcs jika tersedia pada pilihan.</li>
+            <li><strong>Jenis Benang Lusi</strong> dan <strong>Jenis Benang Pakan:</strong> Pilih berdasarkan spesifikasi produksi. Jika belum tahu, konfirmasi terlebih dahulu ke bagian produksi atau data produk; jangan menebak.</li>
+            <li><strong>Produk Olahan</strong> dan <strong>Technique:</strong> Pilih sesuai bentuk akhir dan teknik pembuatan produk yang dijual.</li>
+          </ol>
+          <img src="/images/aploadmobile/4s.png" alt="Form informasi dan deskripsi produk pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h3>Langkah 4.2 — Tulis Deskripsi Produk</h3>
+          <p>Pada kolom <strong>Deskripsi Produk</strong>, tulis ringkasan yang membantu pembeli mengambil keputusan. Jelaskan karakteristik utama, penggunaan, atau detail penting yang belum tercantum pada kolom spesifikasi. Setelah semua informasi terisi, ketuk <strong>Buat Produk</strong> atau tombol lanjutan di bagian bawah formulir.</p>
+
+          <h2 id="mob-buat-variant-produk">5. Buat dan Simpan Variant Produk</h2>
+          <p>Setelah data dasar produk dibuat, halaman <strong>Buat Variant</strong> akan terbuka. Varian dipakai untuk membedakan pilihan produk, misalnya berdasarkan warna, gramasi, atau lebar.</p>
+
+          <h3>Langkah 5.1 — Atur Identitas Varian</h3>
+          <ol>
+            <li>Di bagian <strong>Parameter Produk</strong>, ketuk <strong>Add Parameter</strong> bila ada parameter yang sama untuk semua varian. Parameter yang tidak ditambahkan di sini wajib diisi pada masing-masing varian.</li>
+            <li>Di tab <strong>Variant 1</strong>, masukkan <strong>Nama Variant</strong>.</li>
+            <li>Upload <strong>Foto Variant</strong>. Jika tersedia, upload juga <strong>Tekstur 3D</strong> untuk membantu menampilkan detail material.</li>
+          </ol>
+          <img src="/images/aploadmobile/5.png" alt="Halaman pembuatan variant produk pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h3>Langkah 5.2 — Isi Spesifikasi dan Simpan Varian</h3>
+          <ol>
+            <li>Pilih <strong>Grade</strong>, masukkan <strong>Gramasi</strong> dalam GSM, lalu isi <strong>Lebar</strong> dan pilih satuannya (cm, inci, atau meter).</li>
+            <li>Pilih <strong>Warna</strong> yang sesuai dengan varian tersebut.</li>
+            <li>Ketuk <strong>Simpan Variant</strong> setelah seluruh data varian terisi.</li>
+            <li>Jika ada varian lain, ketuk <strong>Tambah Variant</strong>, lalu ulangi langkah 5.1 dan 5.2 untuk setiap varian.</li>
+          </ol>
+          <img src="/images/aploadmobile/5s.png" alt="Detail variant dengan pilihan grade, gramasi, lebar, dan warna pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Saat memakai tampilan varian <strong>Simple</strong>, pastikan setiap varian mempunyai setidaknya satu parameter yang berbeda. Jika semua parameter sama, sistem akan menampilkan peringatan.
+          </div>
+
+          <h2 id="mob-atur-detail-posting">6. Atur Detail Posting</h2>
+          <p>Setelah variant tersimpan, Anda masuk ke halaman <strong>Posting Produk</strong>. Tentukan cara produk ditayangkan:</p>
+
+          <h3>Langkah 6.1 — Atur Visibilitas, Transaksi, dan Masa Aktif</h3>
+          <ol>
+            <li>Pada <strong>Visibilitas Posting</strong>, pilih <strong>Publik</strong> jika produk siap dilihat pembeli, atau pilih <strong>Tersembunyi</strong> jika ingin menyimpannya tanpa menayangkan produk.</li>
+            <li>Pada <strong>Jenis Transaksi</strong>, pilih satu opsi: <strong>Flash Sale</strong> untuk penjualan dalam periode promo terbatas, <strong>Pre-Order</strong> bila produk diproses atau disiapkan setelah pesanan, atau <strong>Ready Stock</strong> bila stok sudah tersedia untuk dijual.</li>
+            <li>Isi atau pilih rentang tanggal pada <strong>Masa Aktif</strong>.</li>
+          </ol>
+          <img src="/images/aploadmobile/6.png" alt="Halaman Posting Produk dengan visibilitas, jenis transaksi, dan masa aktif pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h3>Langkah 6.2 — Pilih Varian dan Tampilan Varian</h3>
+          <ol>
+            <li>Centang varian yang ingin dimasukkan ke postingan.</li>
+            <li>Pada <strong>Tampilan Variant</strong>, pilih <strong>Detail</strong> untuk menampilkan pilihan varian secara lebih lengkap, atau <strong>Simple</strong> untuk tampilan pilihan yang lebih ringkas.</li>
+            <li>Jika muncul peringatan saat memilih <strong>Simple</strong>, kembali ke langkah 5 dan pastikan ada parameter yang membedakan setiap varian.</li>
+          </ol>
+          <img src="/images/aploadmobile/6s.png" alt="Pilihan varian dan tombol Publish pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-publish-produk">7. Periksa dan Publish Produk</h2>
+          <ol>
+            <li>Pastikan thumbnail, foto produk, informasi produk, deskripsi, dan minimal satu variant sudah tersimpan.</li>
+            <li>Pastikan visibilitas, jenis transaksi, masa aktif, serta variant yang dipilih sudah benar.</li>
+            <li>Ketuk <strong>Publish</strong> untuk menayangkan produk sesuai pengaturan posting.</li>
+            <li>Jika belum siap menerbitkan produk, ketuk <strong>Batal</strong>, perbaiki data yang diperlukan, lalu ulangi langkah posting.</li>
+          </ol>
+          <div class="callout callout-info">
+            Setelah produk dipublikasikan, buka <strong>Produk → Daftar Produk</strong> untuk memantau katalog dan memperbarui data bila diperlukan.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-persiapan-upload-produk', text: '1. Siapkan Data Produk' },
+          { id: 'dsk-akses-menu-produk', text: '2. Buka Menu Tambahkan Produk' },
+          { id: 'dsk-upload-media-produk', text: '3. Upload Thumbnail, Foto, dan Video' },
+          { id: 'dsk-isi-informasi-produk', text: '4. Isi Informasi dan Deskripsi Produk' },
+          { id: 'dsk-buat-variant-produk', text: '5. Buat dan Simpan Variant Produk' },
+          { id: 'dsk-atur-detail-posting', text: '6. Atur Detail Posting' },
+          { id: 'dsk-publish-produk', text: '7. Periksa dan Publish Produk' }
+        ],
+        content: `
+          <p>Panduan ini menjelaskan proses upload produk melalui <strong>Packer Center</strong> di komputer atau laptop. Kerjakan setiap tahap secara berurutan, karena data produk akan digunakan kembali ketika membuat variant dan posting produk.</p>
+
+          <h2 id="dsk-persiapan-upload-produk">1. Siapkan Data Produk</h2>
+          <p>Sebelum mulai mengisi formulir, siapkan data berikut:</p>
+          <ul>
+            <li>Nama produk, satuan penjualan, dan deskripsi produk.</li>
+            <li>Spesifikasi teknis: jenis benang lusi, jenis benang pakan, produk olahan, dan <em>technique</em>.</li>
+            <li>Foto thumbnail dan foto produk dalam format <strong>.jfif, .jpg, .jpeg, atau .png</strong>, dengan ukuran maksimal <strong>2 MB per foto</strong>.</li>
+            <li>Data variant, seperti nama, foto, grade, gramasi, lebar, dan warna.</li>
+            <li>Video MP4 berdurasi 10–30 detik jika ingin menambahkan video produk.</li>
+          </ul>
+          <div class="callout callout-warning">
+            Pastikan foto dan data yang diupload sesuai produk asli. Produk palsu atau konten yang melanggar hak kekayaan intelektual dapat ditolak atau dihapus.
+          </div>
+
+          <h2 id="dsk-akses-menu-produk">2. Buka Menu Tambahkan Produk</h2>
+          <p>Pastikan Anda sudah login dan berada di dashboard Packer Center.</p>
+
+          <h3>Langkah 2.1 — Buka Menu Produk</h3>
+          <p>Pada sidebar kiri dashboard, klik menu <strong>Produk</strong> untuk menampilkan submenu.</p>
+          <img src="/images/aploaddekstop/1.png" alt="Langkah 2.1: Dashboard Packer Center Desktop Web dengan menu Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h3>Langkah 2.2 — Pilih Tambahkan Produk</h3>
+          <p>Setelah submenu Produk terbuka, klik <strong>Tambahkan Produk</strong>.</p>
+          <img src="/images/aploaddekstop/2.png" alt="Langkah 2.2: Menu Produk terbuka dengan pilihan Tambahkan Produk pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h3>Langkah 2.3 — Halaman Upload Produk Terbuka</h3>
+          <p>Setelah mengklik <strong>Tambahkan Produk</strong>, sistem membuka halaman <strong>Unggah Produk Baru</strong>. Lanjutkan ke langkah 3 untuk mengupload media produk.</p>
+
+          <h2 id="dsk-upload-media-produk">3. Upload Thumbnail, Foto, dan Video</h2>
+          <p>Pada bagian <strong>Upload Foto Produk</strong>, selesaikan seluruh media sebelum mengisi data produk.</p>
+
+          <h3>Langkah 3.1 — Upload Media Produk</h3>
+          <ul>
+            <li>Klik ikon <strong>+</strong> pada <strong>Gambar Detail Produk untuk Thumbnail</strong>, kemudian pilih foto utama produk. Gunakan gambar yang terang, proporsional, dan jelas.</li>
+            <li>Klik ikon <strong>+</strong> pada <strong>Upload Foto Produk</strong> untuk menambahkan foto pendukung. Batas maksimal pada formulir adalah <strong>7 foto</strong>.</li>
+            <li>Untuk video produk, klik ikon <strong>+</strong> pada <strong>Upload Video</strong>, lalu pilih video MP4 berdurasi 10–30 detik.</li>
+          </ul>
+          <img src="/images/aploaddekstop/3.png" alt="Form upload foto thumbnail, foto produk, dan video pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            <strong>Bedanya thumbnail dan foto produk:</strong> thumbnail adalah foto utama yang mewakili produk pada katalog; foto produk adalah gambar tambahan yang memperlihatkan detail, warna, atau sudut lain dari produk.
+          </div>
+
+          <h2 id="dsk-isi-informasi-produk">4. Isi Informasi dan Deskripsi Produk</h2>
+          <h3>Langkah 4.1 — Lengkapi Informasi Produk</h3>
+          <p>Scroll ke bagian <strong>Informasi Produk</strong>. Isi setiap kolom wajib yang bertanda bintang (<strong>*</strong>) dengan data yang benar:</p>
+          <ol>
+            <li><strong>Nama Produk:</strong> Gunakan nama spesifik, misalnya <em>Kain Oxford Polyester Putih</em>, bukan hanya <em>Kain Putih</em>.</li>
+            <li><strong>Satuan:</strong> Pilih satuan yang benar-benar digunakan saat menjual produk, misalnya yard, meter, roll, atau pcs jika tersedia pada pilihan.</li>
+            <li><strong>Jenis Benang Lusi</strong> dan <strong>Jenis Benang Pakan:</strong> Pilih berdasarkan spesifikasi produksi. Jika belum tahu, konfirmasi dahulu ke bagian produksi atau data produk; jangan menebak.</li>
+            <li><strong>Produk Olahan</strong> dan <strong>Technique:</strong> Pilih sesuai bentuk akhir dan teknik pembuatan produk yang dijual.</li>
+          </ol>
+          <img src="/images/aploaddekstop/3s.png" alt="Form informasi dan deskripsi produk pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h3>Langkah 4.2 — Tulis Deskripsi Produk</h3>
+          <p>Pada kolom <strong>Deskripsi Produk</strong>, tulis ringkasan yang membantu pembeli mengambil keputusan. Jelaskan karakteristik utama, penggunaan, atau detail penting yang belum tercantum pada kolom spesifikasi. Setelah seluruh data dasar produk terisi, klik <strong>Buat Produk</strong> atau tombol lanjutan di bagian bawah formulir.</p>
+
+          <h2 id="dsk-buat-variant-produk">5. Buat dan Simpan Variant Produk</h2>
+          <p>Di halaman <strong>Buat Variant</strong>, buat variasi produk yang akan dibeli oleh Pooler. Ikuti urutan ini untuk setiap varian:</p>
+
+          <h3>Langkah 5.1 — Atur Identitas Varian</h3>
+          <ol>
+            <li>Isi <strong>Nama Variant</strong> pada tab <strong>Variant 1</strong>.</li>
+            <li>Upload <strong>Foto Variant</strong> dan upload <strong>Tekstur 3D</strong>.</li>
+          </ol>
+          <img src="/images/aploaddekstop/4.png" alt="Halaman pembuatan variant produk pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h3>Langkah 5.2 — Isi Spesifikasi dan Simpan Varian</h3>
+          <ol>
+            <li>Pilih <strong>Grade</strong>, masukkan nilai <strong>Gramasi</strong> dalam GSM, lalu isi <strong>Lebar</strong> dan pilih satuannya (cm, inci, atau meter).</li>
+            <li>Pilih <strong>Warna</strong> yang sesuai dengan varian tersebut, lalu simpan varian.</li>
+            <li>Klik <strong>Tambah Variant</strong> dan ulangi langkah 5.1 serta 5.2 jika produk memiliki pilihan lain.</li>
+          </ol>
+          <div class="callout callout-warning">
+            Saat memakai tampilan varian <strong>Simple</strong>, pastikan setiap varian mempunyai setidaknya satu parameter yang berbeda. Jika semua parameter sama, sistem akan menampilkan peringatan.
+          </div>
+
+          <h2 id="dsk-atur-detail-posting">6. Atur Detail Posting</h2>
+          <p>Setelah varian selesai dibuat, lengkapi pengaturan posting sebelum produk dipublikasikan:</p>
+
+          <h3>Langkah 6.1 — Atur Visibilitas, Transaksi, dan Masa Aktif</h3>
+          <ol>
+            <li>Tentukan <strong>Visibilitas Posting</strong>: pilih <strong>Publik</strong> untuk menayangkan produk atau <strong>Tersembunyi</strong> untuk menyimpan produk tanpa menampilkannya.</li>
+            <li>Pilih <strong>Jenis Transaksi</strong>: <strong>Flash Sale</strong> untuk penjualan dalam periode promo terbatas, <strong>Pre-Order</strong> bila produk diproses atau disiapkan setelah pesanan, atau <strong>Ready Stock</strong> bila stok sudah tersedia untuk dijual.</li>
+            <li>Tentukan periode pada kolom <strong>Masa Aktif</strong>.</li>
+          </ol>
+          <img src="/images/aploaddekstop/5.png" alt="Halaman Posting Produk dengan pilihan jenis transaksi, varian, dan tombol Publish pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h3>Langkah 6.2 — Pilih Varian dan Tampilan Varian</h3>
+          <ol>
+            <li>Centang varian yang akan dimasukkan ke posting produk.</li>
+            <li>Pilih <strong>Detail</strong> untuk menampilkan pilihan varian secara lebih lengkap, atau <strong>Simple</strong> untuk tampilan pilihan yang lebih ringkas.</li>
+            <li>Jika muncul peringatan saat memilih <strong>Simple</strong>, kembali ke langkah 5 dan pastikan setiap varian mempunyai parameter yang berbeda.</li>
+          </ol>
+
+          <h2 id="dsk-publish-produk">7. Periksa dan Publish Produk</h2>
+          <ol>
+            <li>Periksa thumbnail, seluruh foto, informasi produk, deskripsi, dan data setiap variant.</li>
+            <li>Pastikan visibilitas, jenis transaksi, masa aktif, serta varian yang dicentang sudah sesuai.</li>
+            <li>Klik <strong>Publish</strong> untuk menerbitkan produk sesuai pengaturan yang sudah dipilih.</li>
+            <li>Jika masih ada data yang perlu diperbaiki, klik <strong>Batal</strong>, perbarui data, lalu kembali ke halaman posting.</li>
+          </ol>
+          <div class="callout callout-info">
+            Setelah dipublikasikan, buka menu <strong>Produk → Daftar Produk</strong> untuk memantau status katalog dan melakukan pembaruan bila diperlukan.
+          </div>
+        `
+      }
+    ]
+  },
+  {
+    id: '32',
+    slug: 'cara-menghentikan-produk-aktif',
+    title: 'Cara Menghentikan Produk yang Aktif di Packer Center',
+    excerpt: 'Panduan visual untuk menghentikan posting produk yang sedang aktif melalui Packer Center di Mobile Web dan Desktop Web.',
+    category: 'pesanan',
+    categoryTitle: 'Pesanan',
+    subCategoryId: '2-3',
+    readTime: 4,
+    lastUpdated: '18 September 2026',
+    audience: 'penjual',
+    tags: [
+      'hentikan produk', 'berhentikan produk', 'stop produk', 'nonaktifkan produk',
+      'produk aktif', 'post aktif', 'hentikan post', 'kelola post', 'daftar produk',
+      'packer center', 'dashboard packer', 'packer', 'penjual'
+    ],
+    toc: [
+      { id: 'mob-hentikan-produk', text: 'Mobile Web: Menghentikan Produk Aktif' },
+      { id: 'dsk-hentikan-produk', text: 'Desktop Web: Menghentikan Produk Aktif' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-buka-daftar-produk', text: '1. Buka Daftar Produk' },
+          { id: 'mob-pilih-kelola-post', text: '2. Pilih Kelola Post' },
+          { id: 'mob-pilih-hentikan', text: '3. Pilih Hentikan' },
+          { id: 'mob-konfirmasi-hentikan', text: '4. Konfirmasi Penghentian Produk' }
+        ],
+        content: `
+          <p>Gunakan panduan ini untuk menghentikan <strong>post produk yang sedang aktif</strong> melalui Packer Center di browser smartphone. Produk tidak dihapus; posting hanya dihentikan agar tidak lagi ditayangkan kepada Pooler.</p>
+
+          <h2 id="mob-buka-daftar-produk">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</li>
+            <li>Pilih menu <strong>Produk</strong>, lalu ketuk <strong>Daftar Produk</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpmobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Produk dan Daftar Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-pilih-kelola-post">2. Pilih Kelola Post</h2>
+          <p>Di halaman <strong>List Produk</strong>, cari produk yang ingin dihentikan.</p>
+          <ol>
+            <li>Jika tabel melebar, geser tabel secara horizontal ke kiri atau kanan sampai kolom <strong>Aksi</strong> dan ikon tiga titik terlihat.</li>
+            <li>Ketuk ikon <strong>tiga titik</strong> pada baris produk yang statusnya <strong>Aktif</strong>.</li>
+          </ol>
+          <div class="callout callout-info">
+            <strong>Khusus tampilan mobile:</strong> kolom Aksi berada di sisi kanan tabel. Geser tabel terlebih dahulu untuk menemukan ikon tiga titik pada produk yang dituju.
+          </div>
+          <img src="/images/berhentiinpmobile/2.png" alt="Daftar produk Mobile Web dengan kolom Aksi dan ikon tiga titik" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol start="3">
+            <li>Pada menu yang muncul, ketuk <strong>Kelola Post</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpmobile/3.png" alt="Menu aksi produk Mobile Web dengan pilihan Kelola Post" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-pilih-hentikan">3. Pilih Hentikan</h2>
+          <p>Halaman posting produk akan menampilkan daftar post dan statusnya.</p>
+          <ol>
+            <li>Pastikan post yang dipilih berstatus <strong>Aktif</strong>.</li>
+            <li>Geser tabel bila perlu, lalu ketuk tombol <strong>Hentikan</strong> pada kolom <strong>Aksi</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpmobile/4.png" alt="Daftar post produk Mobile Web dengan tombol Hentikan pada kolom Aksi" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-konfirmasi-hentikan">4. Konfirmasi Penghentian Produk</h2>
+          <p>Modal konfirmasi <strong>Hentikan Post Produk</strong> akan muncul.</p>
+          <ol>
+            <li>Periksa kembali produk yang akan dihentikan.</li>
+            <li>Ketuk tombol merah <strong>Hentikan</strong> untuk mengonfirmasi.</li>
+            <li>Jika belum yakin, ketuk <strong>Kembali</strong> untuk membatalkan.</li>
+          </ol>
+          <img src="/images/berhentiinpmobile/5.png" alt="Modal konfirmasi Hentikan Post Produk pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Setelah dikonfirmasi, post produk tidak lagi aktif atau ditayangkan. Pastikan Anda memilih produk dan post yang benar sebelum menekan tombol <strong>Hentikan</strong>.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-buka-daftar-produk', text: '1. Buka Daftar Produk' },
+          { id: 'dsk-pilih-kelola-post', text: '2. Pilih Kelola Post' },
+          { id: 'dsk-pilih-hentikan', text: '3. Pilih Hentikan' },
+          { id: 'dsk-konfirmasi-hentikan', text: '4. Konfirmasi Penghentian Produk' }
+        ],
+        content: `
+          <p>Anda dapat menghentikan <strong>post produk yang sedang aktif</strong> melalui Packer Center di komputer atau laptop. Penghentian ini tidak menghapus produk, tetapi menghentikan penayangan post tersebut kepada Pooler.</p>
+
+          <h2 id="dsk-buka-daftar-produk">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Pada menu di sebelah kiri, pilih <strong>Produk</strong> → <strong>Daftar Produk</strong>.</li>
+            <li>Cari produk yang ingin dihentikan dan pastikan statusnya <strong>Aktif</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpdekstop/1.png" alt="Halaman Daftar Produk Packer Center Desktop Web dengan ikon tiga titik pada kolom Aksi" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-pilih-kelola-post">2. Pilih Kelola Post</h2>
+          <ol>
+            <li>Pada baris produk yang dituju, klik ikon <strong>tiga titik</strong> di kolom <strong>Aksi</strong>.</li>
+            <li>Pada menu yang muncul, klik <strong>Kelola Post</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpdekstop/2.png" alt="Menu aksi produk Desktop Web dengan pilihan Kelola Post" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-pilih-hentikan">3. Pilih Hentikan</h2>
+          <p>Di halaman kelola post, periksa daftar post yang tersedia.</p>
+          <ol>
+            <li>Pastikan post yang dipilih berstatus <strong>Aktif</strong>.</li>
+            <li>Pada kolom <strong>Aksi</strong>, klik tombol <strong>Hentikan</strong>.</li>
+          </ol>
+          <img src="/images/berhentiinpdekstop/3.png" alt="Halaman kelola post Desktop Web dengan tombol Hentikan pada kolom Aksi" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-konfirmasi-hentikan">4. Konfirmasi Penghentian Produk</h2>
+          <p>Dialog konfirmasi <strong>Hentikan Post Produk</strong> akan tampil di tengah layar.</p>
+          <ol>
+            <li>Pastikan produk dan post yang ditampilkan sudah benar.</li>
+            <li>Klik tombol merah <strong>Hentikan</strong> untuk melanjutkan.</li>
+            <li>Klik <strong>Kembali</strong> jika ingin membatalkan proses.</li>
+          </ol>
+          <img src="/images/berhentiinpdekstop/4.png" alt="Dialog konfirmasi Hentikan Post Produk pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-warning">
+            Setelah dikonfirmasi, post produk tidak lagi aktif atau ditayangkan. Pastikan Anda memilih produk dan post yang benar sebelum mengklik tombol <strong>Hentikan</strong>.
+          </div>
+        `
+      }
+    ]
+  },
+  {
+    id: '33',
+    slug: 'cara-post-produk-tidak-aktif',
+    title: 'Cara Membuat Post Produk yang Sudah Tidak Aktif',
+    excerpt: 'Panduan membuat post kembali untuk produk yang sudah tidak aktif atau sebelumnya dihentikan melalui Packer Center.',
     category: 'pesanan',
     categoryTitle: 'Pesanan',
     subCategoryId: '2-3',
     readTime: 5,
-    lastUpdated: '08 September 2026',
+    lastUpdated: '18 September 2026',
     audience: 'penjual',
     tags: [
-      'atur produk', 'tambah produk', 'stok produk', 'harga jual', 'katalog packer', 'katalog seller',
-      'upload produk', 'varian produk', 'kelola stok', 'manajemen produk', 'edit produk', 'packer'
+      'post produk', 'posting produk', 'upload produk lama', 'post ulang produk',
+      'buat post', 'produk tidak aktif', 'produk berhenti', 'produk dihentikan',
+      'aktifkan produk', 'publish produk', 'packer center', 'dashboard packer', 'packer'
     ],
     toc: [
-      { id: 'tambah-produk-baru', text: 'Menambahkan Produk Baru' },
-      { id: 'atur-varian-harga', text: 'Mengatur Varian dan Harga' },
-      { id: 'kelola-stok', text: 'Monitoring dan Update Stok' },
-      { id: 'nonaktifkan-produk', text: 'Menonaktifkan Produk' }
+      { id: 'mob-post-produk-tidak-aktif', text: 'Mobile Web: Membuat Post Produk Tidak Aktif' },
+      { id: 'dsk-post-produk-tidak-aktif', text: 'Desktop Web: Membuat Post Produk Tidak Aktif' }
     ],
-    content: `
-      <h2 id="tambah-produk-baru">Menambahkan Produk Baru</h2>
-      <ol>
-        <li>Di Dashboard Packer, buka menu <strong>Produk</strong> → klik tombol <strong>+ Tambah Produk</strong>.</li>
-        <li>Isi nama produk, deskripsi detail, dan pilih tipe kategori produk (Flash Sale, Pre Order, atau Ready Stock).</li>
-        <li>Upload foto produk: minimal 3 foto dari sudut berbeda, resolusi minimal 800×800 px dengan pencahayaan jelas.</li>
-        <li>Tentukan satuan jual (yard, roll, pcs, meter) dan minimum order quantity (MOQ) untuk Ready Stock, atau ketentuan toleransi untuk Pre Order.</li>
-        <li>Klik <strong>Simpan & Publikasikan</strong> untuk menayangkan produk.</li>
-      </ol>
-      <div class="callout callout-warning">
-        Produk yang tidak memiliki stok aktif akan otomatis disembunyikan dari pencarian Pooler (pembeli). Pastikan stok selalu diperbarui.
-      </div>
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-buka-daftar-produk-post', text: '1. Buka Daftar Produk' },
+          { id: 'mob-pilih-produk-tidak-aktif', text: '2. Pilih Produk Tidak Aktif' },
+          { id: 'mob-pilih-buat-post', text: '3. Pilih Buat Post' },
+          { id: 'mob-atur-detail-post', text: '4. Atur Detail Post dan Publish' }
+        ],
+        content: `
+          <p>Produk yang sebelumnya dihentikan atau berstatus <strong>Tidak Aktif</strong> dapat dibuatkan post kembali melalui Packer Center. Ikuti langkah berikut melalui browser smartphone.</p>
 
-      <h2 id="atur-varian-harga">Mengatur Varian dan Harga</h2>
-      <p>Jika produk memiliki beberapa pilihan warna, ketebalan, atau motif:</p>
-      <ul>
-        <li>Aktifkan fitur <strong>Varian Produk</strong> pada halaman edit produk.</li>
-        <li>Tambahkan atribut varian (contoh: Warna — Putih, Hitam, Navy, atau Gramasi kain).</li>
-        <li>Isi harga masing-masing varian. Anda dapat mengatur harga bertingkat (grosir) berdasarkan kuantitas pesanan.</li>
-      </ul>
+          <h2 id="mob-buka-daftar-produk-post">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</li>
+            <li>Pilih menu <strong>Produk</strong>, lalu ketuk <strong>Daftar Produk</strong>.</li>
+          </ol>
+          <img src="/images/aploadPadamobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Produk dan Daftar Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
 
-      <h2 id="kelola-stok">Monitoring dan Update Stok</h2>
-      <p>Packer dapat memantau stok dari menu <strong>Produk</strong> → <strong>Stok</strong>. Sistem akan mengirim notifikasi WhatsApp otomatis jika stok produk menipis di bawah batas minimum yang Anda tetapkan.</p>
+          <h2 id="mob-pilih-produk-tidak-aktif">2. Pilih Produk Tidak Aktif</h2>
+          <p>Di halaman <strong>List Produk</strong>, cari produk yang ingin diposting kembali.</p>
+          <ol>
+            <li>Pastikan status produk adalah <strong>Tidak Aktif</strong>.</li>
+            <li>Jika tabel melebar, geser tabel secara horizontal sampai kolom <strong>Aksi</strong> dan ikon tiga titik terlihat.</li>
+            <li>Ketuk ikon <strong>tiga titik</strong> pada baris produk yang dituju.</li>
+          </ol>
+          <div class="callout callout-info">
+            <strong>Khusus tampilan mobile:</strong> kolom Aksi berada di sisi kanan tabel. Geser tabel terlebih dahulu untuk menemukan ikon tiga titik pada produk yang berstatus Tidak Aktif.
+          </div>
+          <img src="/images/aploadPadamobile/2.png" alt="Daftar produk Mobile Web dengan produk berstatus Tidak Aktif dan kolom Aksi" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
 
-      <h2 id="nonaktifkan-produk">Menonaktifkan Produk</h2>
-      <p>Jika stok kain atau kemasan sementara habis atau mesin sedang maintenance, gunakan toggle <strong>Aktif/Nonaktif</strong> pada daftar produk — produk tidak dihapus, hanya disembunyikan sementara dari tampilan Pooler.</p>
-    `
+          <h2 id="mob-pilih-buat-post">3. Pilih Buat Post</h2>
+          <p>Pada menu aksi produk, ketuk <strong>Buat Post</strong> untuk membuat posting baru dari produk yang sudah tersedia.</p>
+          <img src="/images/aploadPadamobile/3.png" alt="Menu aksi produk Mobile Web dengan pilihan Buat Post" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-atur-detail-post">4. Atur Detail Post dan Publish</h2>
+          <p>Halaman <strong>Posting Produk</strong> akan terbuka. Lengkapi pengaturan berikut:</p>
+          <ol>
+            <li>Pada <strong>Visibilitas Posting</strong>, pilih <strong>Publik</strong> agar produk dapat ditampilkan kepada Pooler, atau pilih <strong>Tersembunyi</strong> jika belum ingin menayangkannya.</li>
+            <li>Pada <strong>Jenis Transaksi</strong>, pilih salah satu: <strong>Flash Sale</strong>, <strong>Pre-Order</strong>, atau <strong>Ready Stock</strong>.</li>
+            <li>Tentukan tanggal pada <strong>Masa Aktif</strong>.</li>
+            <li>Pilih atau centang varian produk yang ingin dimasukkan ke dalam post.</li>
+            <li>Pilih tampilan varian <strong>Detail</strong> atau <strong>Simple</strong> sesuai kebutuhan.</li>
+            <li>Periksa kembali seluruh pengaturan, lalu ketuk <strong>Publish</strong>.</li>
+          </ol>
+          <img src="/images/aploadPadamobile/6.png" alt="Halaman Posting Produk Mobile Web dengan pengaturan visibilitas, jenis transaksi, masa aktif, dan varian" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Pastikan memilih varian, jenis transaksi, visibilitas, dan masa aktif yang benar sebelum menekan <strong>Publish</strong>. Produk akan ditayangkan sesuai pengaturan yang dipilih.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-buka-daftar-produk-post', text: '1. Buka Daftar Produk' },
+          { id: 'dsk-pilih-produk-tidak-aktif', text: '2. Pilih Produk Tidak Aktif' },
+          { id: 'dsk-pilih-buat-post', text: '3. Pilih Buat Post' },
+          { id: 'dsk-atur-detail-post', text: '4. Atur Detail Post dan Publish' }
+        ],
+        content: `
+          <p>Produk yang sebelumnya dihentikan atau berstatus <strong>Tidak Aktif</strong> dapat dibuatkan post kembali melalui Packer Center. Ikuti langkah berikut menggunakan komputer atau laptop.</p>
+
+          <h2 id="dsk-buka-daftar-produk-post">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Pada menu di sebelah kiri, pilih <strong>Produk</strong> → <strong>Daftar Produk</strong>.</li>
+          </ol>
+          <h2 id="dsk-pilih-produk-tidak-aktif">2. Pilih Produk Tidak Aktif</h2>
+          <p>Di halaman <strong>List Produk</strong>, cari produk yang ingin diposting kembali.</p>
+          <ol>
+            <li>Pastikan produk yang dipilih berstatus <strong>Tidak Aktif</strong>.</li>
+            <li>Pada baris produk tersebut, klik ikon <strong>tiga titik</strong> di kolom <strong>Aksi</strong>.</li>
+          </ol>
+          <img src="/images/aploadPadadekstop/1.png" alt="Halaman Daftar Produk Packer Center Desktop Web dengan produk berstatus Tidak Aktif" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-pilih-buat-post">3. Pilih Buat Post</h2>
+          <p>Pada menu aksi yang muncul, klik <strong>Buat Post</strong>. Sistem akan membuka halaman pengaturan posting produk.</p>
+          <img src="/images/aploadPadadekstop/2.png" alt="Menu aksi produk Desktop Web dengan pilihan Buat Post pada produk Tidak Aktif" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-atur-detail-post">4. Atur Detail Post dan Publish</h2>
+          <p>Di halaman <strong>Posting Produk</strong>, lengkapi pengaturan berikut:</p>
+          <ol>
+            <li>Pada <strong>Visibilitas Posting</strong>, pilih <strong>Publik</strong> agar produk dapat ditampilkan kepada Pooler, atau pilih <strong>Tersembunyi</strong> jika belum ingin menayangkannya.</li>
+            <li>Pada <strong>Jenis Transaksi</strong>, pilih salah satu: <strong>Flash Sale</strong>, <strong>Pre-Order</strong>, atau <strong>Ready Stock</strong>.</li>
+            <li>Tentukan tanggal pada <strong>Masa Aktif</strong>.</li>
+            <li>Pilih atau centang varian produk yang ingin dimasukkan ke dalam post.</li>
+            <li>Pilih tampilan varian <strong>Detail</strong> atau <strong>Simple</strong> sesuai kebutuhan.</li>
+            <li>Periksa kembali seluruh pengaturan, lalu klik <strong>Publish</strong>.</li>
+          </ol>
+          <img src="/images/aploadPadadekstop/3.png" alt="Halaman Posting Produk Desktop Web dengan pengaturan visibilitas, jenis transaksi, masa aktif, dan varian" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-warning">
+            Pastikan memilih varian, jenis transaksi, visibilitas, dan masa aktif yang benar sebelum menekan <strong>Publish</strong>. Produk akan ditayangkan sesuai pengaturan yang dipilih.
+          </div>
+        `
+      }
+    ]
+  },
+  {
+    id: '34',
+    slug: 'cara-mengedit-produk-di-packer-center',
+    title: 'Cara Mengedit Produk di Packer Center',
+    excerpt: 'Panduan mengubah foto, informasi, dan deskripsi produk yang sudah ada melalui Packer Center di Mobile Web dan Desktop Web.',
+    category: 'pesanan',
+    categoryTitle: 'Pesanan',
+    subCategoryId: '2-3',
+    readTime: 5,
+    lastUpdated: '18 September 2026',
+    audience: 'penjual',
+    tags: [
+      'edit produk', 'mengedit produk', 'ubah produk', 'perbarui produk',
+      'edit foto produk', 'edit informasi produk', 'edit deskripsi produk',
+      'simpan produk', 'daftar produk', 'packer center', 'dashboard packer', 'packer'
+    ],
+    toc: [
+      { id: 'mob-edit-produk', text: 'Mobile Web: Mengedit Produk' },
+      { id: 'dsk-edit-produk', text: 'Desktop Web: Mengedit Produk' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-buka-daftar-produk-edit', text: '1. Buka Daftar Produk' },
+          { id: 'mob-pilih-produk-edit', text: '2. Pilih Produk yang Akan Diedit' },
+          { id: 'mob-pilih-edit-produk', text: '3. Pilih Edit Produk' },
+          { id: 'mob-edit-foto-produk', text: '4. Edit Foto Produk' },
+          { id: 'mob-edit-informasi-produk', text: '5. Edit Informasi dan Simpan' }
+        ],
+        content: `
+          <p>Gunakan panduan ini untuk memperbarui data produk yang sudah ada di Packer Center melalui browser smartphone. Anda dapat mengubah foto, informasi produk, dan deskripsi tanpa membuat produk baru.</p>
+
+          <h2 id="mob-buka-daftar-produk-edit">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</li>
+            <li>Pilih menu <strong>Produk</strong>, lalu ketuk <strong>Daftar Produk</strong>.</li>
+          </ol>
+          <img src="/images/editpmobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Produk dan Daftar Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-pilih-produk-edit">2. Pilih Produk yang Akan Diedit</h2>
+          <p>Di halaman <strong>List Produk</strong>, cari produk yang ingin diperbarui.</p>
+          <ol>
+            <li>Jika tabel melebar, geser tabel secara horizontal sampai kolom <strong>Aksi</strong> dan ikon tiga titik terlihat.</li>
+            <li>Ketuk ikon <strong>tiga titik</strong> pada baris produk yang dituju.</li>
+          </ol>
+          <div class="callout callout-info">
+            <strong>Khusus tampilan mobile:</strong> kolom Aksi berada di sisi kanan tabel. Geser tabel terlebih dahulu untuk menemukan ikon tiga titik pada produk yang ingin diedit.
+          </div>
+          <img src="/images/editpmobile/2.png" alt="Daftar produk Mobile Web dengan kolom Aksi dan ikon tiga titik" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-pilih-edit-produk">3. Pilih Edit Produk</h2>
+          <p>Pada menu yang muncul, ketuk <strong>Edit Produk</strong>. Sistem akan membuka halaman pengeditan produk.</p>
+          <img src="/images/editpmobile/3.png" alt="Menu aksi produk Mobile Web dengan pilihan Edit Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-edit-foto-produk">4. Edit Foto Produk</h2>
+          <p>Di halaman <strong>Edit Produk</strong>, Anda dapat memperbarui media produk:</p>
+          <ol>
+            <li>Pada bagian <strong>Gambar Detail Produk untuk Thumbnail</strong>, gunakan foto utama yang jelas dan sesuai dengan produk.</li>
+            <li>Pada bagian <strong>Upload Foto Produk</strong>, ketuk ikon <strong>+</strong> untuk menambahkan foto pendukung atau gunakan ikon hapus pada foto yang ingin diganti.</li>
+            <li>Jika diperlukan, tambahkan video pada bagian <strong>Upload Video</strong>. Video menggunakan format MP4 dengan durasi 10–30 detik.</li>
+          </ol>
+          <div class="callout callout-warning">
+            Foto produk harus menggunakan format <strong>.jfif, .jpg, .jpeg, atau .png</strong> dengan ukuran maksimal <strong>2 MB per foto</strong>. Gunakan foto yang sesuai dengan produk asli dan tidak melanggar hak kekayaan intelektual.
+          </div>
+          <img src="/images/editpmobile/4.png" alt="Halaman Edit Produk Mobile Web dengan bagian thumbnail, foto produk, dan video" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-edit-informasi-produk">5. Edit Informasi dan Simpan</h2>
+          <p>Scroll ke bagian informasi produk, lalu perbarui kolom yang diperlukan:</p>
+          <ol>
+            <li><strong>Nama Produk:</strong> Perbarui nama jika ada perubahan pada produk.</li>
+            <li><strong>Satuan:</strong> Pastikan satuan penjualan sudah sesuai.</li>
+            <li><strong>Jenis Benang Lusi</strong>, <strong>Jenis Benang Pakan</strong>, <strong>Produk Olahan</strong>, dan <strong>Technique:</strong> Periksa atau ubah sesuai spesifikasi produk.</li>
+            <li>Pada bagian <strong>Deskripsi Produk</strong>, perbarui keterangan produk agar tetap sesuai dengan kondisi dan detail terbaru.</li>
+            <li>Setelah semua perubahan selesai, ketuk tombol <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/editpmobile/5.png" alt="Bagian informasi, deskripsi produk, dan tombol Simpan pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            Periksa kembali seluruh perubahan sebelum menekan <strong>Simpan</strong>. Data produk akan diperbarui sesuai informasi terakhir yang Anda masukkan.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-buka-daftar-produk-edit', text: '1. Buka Daftar Produk' },
+          { id: 'dsk-pilih-produk-edit', text: '2. Pilih Produk yang Akan Diedit' },
+          { id: 'dsk-pilih-edit-produk', text: '3. Pilih Edit Produk' },
+          { id: 'dsk-edit-media-produk', text: '4. Edit Media Produk' },
+          { id: 'dsk-edit-informasi-produk', text: '5. Edit Informasi dan Simpan' }
+        ],
+        content: `
+          <p>Gunakan panduan ini untuk memperbarui data produk yang sudah ada di Packer Center melalui komputer atau laptop. Anda dapat mengubah foto, informasi produk, dan deskripsi tanpa membuat produk baru.</p>
+
+          <h2 id="dsk-buka-daftar-produk-edit">1. Buka Daftar Produk</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Pada menu di sebelah kiri, pilih <strong>Produk</strong> → <strong>Daftar Produk</strong>.</li>
+          </ol>
+
+          <h2 id="dsk-pilih-produk-edit">2. Pilih Produk yang Akan Diedit</h2>
+          <p>Di halaman <strong>List Produk</strong>, cari produk yang ingin diperbarui.</p>
+          <ol>
+            <li>Pada baris produk yang dituju, klik ikon <strong>tiga titik</strong> di kolom <strong>Aksi</strong>.</li>
+            <li>Pada menu yang muncul, klik <strong>Edit Produk</strong>.</li>
+          </ol>
+          <img src="/images/editpdekstop/1.png" alt="Daftar produk Desktop Web dengan menu aksi dan pilihan Edit Produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-pilih-edit-produk">3. Pilih Edit Produk</h2>
+          <p>Setelah memilih <strong>Edit Produk</strong>, halaman <strong>Edit Produk</strong> akan terbuka. Periksa bagian media dan informasi yang ingin diperbarui.</p>
+          <img src="/images/editpdekstop/2.png" alt="Halaman Edit Produk Desktop Web dengan bagian upload foto dan informasi produk" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-edit-media-produk">4. Edit Media Produk</h2>
+          <p>Pada bagian <strong>Upload Foto Produk</strong>, perbarui media produk sesuai kebutuhan:</p>
+          <ol>
+            <li>Perbarui <strong>Gambar Detail Produk untuk Thumbnail</strong> dengan foto utama yang jelas dan sesuai dengan produk.</li>
+            <li>Tambahkan atau hapus foto pada bagian <strong>Upload Foto Produk</strong> untuk memperbarui foto pendukung.</li>
+            <li>Jika diperlukan, tambahkan video pada bagian <strong>Upload Video</strong>. Video menggunakan format MP4 dengan durasi 10–30 detik.</li>
+          </ol>
+          <div class="callout callout-warning">
+            Foto produk harus menggunakan format <strong>.jfif, .jpg, .jpeg, atau .png</strong> dengan ukuran maksimal <strong>2 MB per foto</strong>. Gunakan foto yang sesuai dengan produk asli dan tidak melanggar hak kekayaan intelektual.
+          </div>
+
+          <h2 id="dsk-edit-informasi-produk">5. Edit Informasi dan Simpan</h2>
+          <p>Scroll ke bagian <strong>Informasi Produk</strong>, lalu ubah kolom yang diperlukan:</p>
+          <ol>
+            <li><strong>Nama Produk:</strong> Perbarui nama jika ada perubahan pada produk.</li>
+            <li><strong>Satuan:</strong> Pastikan satuan penjualan sudah sesuai.</li>
+            <li><strong>Jenis Benang Lusi</strong>, <strong>Jenis Benang Pakan</strong>, <strong>Produk Olahan</strong>, dan <strong>Technique:</strong> Periksa atau ubah sesuai spesifikasi produk.</li>
+            <li>Pada bagian <strong>Deskripsi Produk</strong>, perbarui keterangan produk agar tetap sesuai dengan kondisi dan detail terbaru.</li>
+            <li>Setelah semua perubahan selesai, klik tombol <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/editpdekstop/3.png" alt="Bagian informasi, deskripsi produk, dan tombol Simpan pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            Periksa kembali seluruh perubahan sebelum mengklik <strong>Simpan</strong>. Data produk akan diperbarui sesuai informasi terakhir yang Anda masukkan.
+          </div>
+        `
+      }
+    ]
+  },
+  {
+    id: '35',
+    slug: 'cara-mengajukan-pencairan-dana-packer',
+    title: 'Cara Mengajukan Pencairan Dana Hasil Transaksi bagi Packer',
+    excerpt: 'Panduan mengajukan pencairan dana hasil transaksi Packer melalui menu Pencairan Dana, mengunggah faktur pajak, dan memantau proses pengajuan hingga selesai.',
+    category: 'pembayaran',
+    categoryTitle: 'Pembayaran',
+    subCategoryId: '4-3',
+    readTime: 5,
+    lastUpdated: '18 September 2026',
+    audience: 'penjual',
+    tags: [
+      'pencairan dana', 'cairkan dana', 'pengajuan pencairan', 'pencairan packer',
+      'dana hasil transaksi', 'hasil transaksi', 'tarik dana', 'faktur pajak',
+      'riwayat pengajuan', 'bisa dicairkan', 'packer center', 'packer', 'penjual'
+    ],
+    toc: [
+      { id: 'mob-pencairan-dana', text: 'Mobile Web: Mengajukan Pencairan Dana' },
+      { id: 'dsk-pencairan-dana', text: 'Desktop Web: Mengajukan Pencairan Dana' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-buka-pencairan', text: '1. Buka Menu Pencairan Dana' },
+          { id: 'mob-pilih-transaksi-cair', text: '2. Pilih Transaksi yang Bisa Dicairkan' },
+          { id: 'mob-ajukan-pencairan', text: '3. Ajukan Pencairan' },
+          { id: 'mob-lengkapi-pengajuan', text: '4. Lengkapi dan Kirim Pengajuan' },
+          { id: 'mob-pantau-pengajuan', text: '5. Pantau Riwayat Pengajuan' }
+        ],
+        content: `
+          <div class="callout callout-warning">
+            <strong>Penting:</strong> Pencairan dana di Poolapack menggunakan sistem pengajuan. Dana tidak langsung cair setelah Anda menekan tombol pengajuan karena harus melalui proses pemeriksaan terlebih dahulu. Pantau statusnya melalui menu <strong>Riwayat Pengajuan</strong>.
+          </div>
+
+          <h2 id="mob-buka-pencairan">1. Buka Menu Pencairan Dana</h2>
+          <p>Pastikan rekening pencairan yang terdaftar sudah benar sebelum mengajukan dana.</p>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</li>
+            <li>Pilih menu <strong>Pencairan Dana</strong>.</li>
+          </ol>
+          <img src="/images/cairkkanmobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Pencairan Dana" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-pilih-transaksi-cair">2. Pilih Transaksi yang Bisa Dicairkan</h2>
+          <p>Pada halaman <strong>Pencairan Dana</strong>, tab <strong>Transaksi Tersedia</strong> menampilkan transaksi yang dapat diajukan.</p>
+          <ol>
+            <li>Periksa rekening pencairan yang ditampilkan. Jika perlu, gunakan tombol <strong>Ubah Rekening</strong> untuk memperbarui rekening tujuan.</li>
+            <li>Pilih transaksi dengan mencentang kotak pada baris transaksi.</li>
+            <li>Pilih transaksi yang statusnya <strong>Bisa Dicairkan</strong> dan pastikan nominalnya sesuai.</li>
+          </ol>
+          <img src="/images/cairkkanmobile/2.png" alt="Daftar Transaksi Tersedia pada halaman Pencairan Dana Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-ajukan-pencairan">3. Ajukan Pencairan</h2>
+          <p>Setelah transaksi dipilih, sistem menampilkan jumlah transaksi dan total nominal pencairan.</p>
+          <ol>
+            <li>Periksa ringkasan <strong>Total Pencairan</strong>.</li>
+            <li>Jika data sudah benar, ketuk tombol <strong>Ajukan Pencairan</strong>.</li>
+          </ol>
+          <img src="/images/cairkkanmobile/3.png" alt="Ringkasan transaksi terpilih dan tombol Ajukan Pencairan pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-lengkapi-pengajuan">4. Lengkapi dan Kirim Pengajuan</h2>
+          <p>Modal <strong>Ajukan Pencairan Dana</strong> akan terbuka. Periksa kembali ringkasan transaksi sebelum mengirim pengajuan.</p>
+          <ol>
+            <li>Upload <strong>Faktur Pajak</strong> pada area <strong>Pilih File</strong> jika diminta. Format yang didukung adalah PDF, JPG, atau PNG dengan ukuran maksimal 2 MB.</li>
+            <li>Isi <strong>Catatan</strong> tambahan jika diperlukan.</li>
+            <li>Ketuk <strong>Ajukan Sekarang</strong> untuk mengirim pengajuan, atau ketuk <strong>Batal</strong> untuk kembali.</li>
+          </ol>
+          <img src="/images/cairkkanmobile/4.png" alt="Modal Ajukan Pencairan Dana pada Mobile Web dengan upload faktur pajak dan catatan" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            Setelah pengajuan dikirim, dana belum langsung masuk ke rekening. Pengajuan akan diproses terlebih dahulu oleh Poolapack.
+          </div>
+
+          <h2 id="mob-pantau-pengajuan">5. Pantau Riwayat Pengajuan</h2>
+          <p>Untuk memantau pengajuan yang sudah dikirim:</p>
+          <ol>
+            <li>Pada halaman <strong>Pencairan Dana</strong>, ketuk tab <strong>Riwayat Pengajuan</strong>.</li>
+            <li>Periksa nomor pengajuan, tanggal, rekening tujuan, nominal, dan status prosesnya.</li>
+            <li>Tunggu hingga proses pengajuan selesai sebelum mengecek dana masuk ke rekening.</li>
+          </ol>
+          <img src="/images/cairkkanmobile/5.png" alt="Tab Riwayat Pengajuan pada halaman Pencairan Dana Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-buka-pencairan', text: '1. Buka Menu Pencairan Dana' },
+          { id: 'dsk-pilih-transaksi-cair', text: '2. Pilih Transaksi yang Bisa Dicairkan' },
+          { id: 'dsk-ajukan-pencairan', text: '3. Ajukan Pencairan' },
+          { id: 'dsk-lengkapi-pengajuan', text: '4. Lengkapi dan Kirim Pengajuan' },
+          { id: 'dsk-pantau-pengajuan', text: '5. Pantau Riwayat Pengajuan' }
+        ],
+        content: `
+          <div class="callout callout-warning">
+            <strong>Penting:</strong> Pencairan dana di Poolapack menggunakan sistem pengajuan. Dana tidak langsung cair setelah Anda mengajukan pencairan karena harus melalui proses pemeriksaan terlebih dahulu. Pantau statusnya melalui tab <strong>Riwayat Pengajuan</strong>.
+          </div>
+
+          <h2 id="dsk-buka-pencairan">1. Buka Menu Pencairan Dana</h2>
+          <p>Pastikan rekening pencairan yang terdaftar sudah benar sebelum mengajukan dana.</p>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Pada menu di sebelah kiri, pilih <strong>Pencairan Dana</strong>.</li>
+          </ol>
+          <h2 id="dsk-pilih-transaksi-cair">2. Pilih Transaksi yang Bisa Dicairkan</h2>
+          <p>Pada tab <strong>Transaksi Tersedia</strong>, pilih transaksi yang ingin diajukan pencairannya.</p>
+          <ol>
+            <li>Periksa rekening pencairan yang ditampilkan. Jika perlu, gunakan tombol <strong>Ubah Rekening</strong> untuk memperbarui rekening tujuan.</li>
+            <li>Centang kotak pada transaksi yang statusnya <strong>Bisa Dicairkan</strong>.</li>
+            <li>Pastikan nominal pada kolom <strong>Dapat Dicairkan</strong> sudah sesuai dengan transaksi yang dipilih.</li>
+          </ol>
+          <img src="/images/cairkandekstop/1.png" alt="Halaman Pencairan Dana Desktop Web dengan daftar transaksi tersedia" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-ajukan-pencairan">3. Ajukan Pencairan</h2>
+          <p>Setelah transaksi dipilih, sistem menampilkan jumlah transaksi dan total pencairan.</p>
+          <ol>
+            <li>Periksa ringkasan <strong>Total Pencairan</strong>.</li>
+            <li>Jika data sudah benar, klik tombol <strong>Ajukan Pencairan</strong>.</li>
+          </ol>
+          <img src="/images/cairkandekstop/2.png" alt="Transaksi terpilih dan tombol Ajukan Pencairan pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-lengkapi-pengajuan">4. Lengkapi dan Kirim Pengajuan</h2>
+          <p>Modal <strong>Ajukan Pencairan Dana</strong> akan terbuka. Periksa kembali transaksi yang dipilih sebelum mengirim pengajuan.</p>
+          <ol>
+            <li>Upload <strong>Faktur Pajak</strong> pada area <strong>Pilih File</strong> jika diminta. Format yang didukung adalah PDF, JPG, atau PNG dengan ukuran maksimal 2 MB.</li>
+            <li>Isi <strong>Catatan</strong> tambahan jika diperlukan.</li>
+            <li>Klik <strong>Ajukan Sekarang</strong> untuk mengirim pengajuan, atau klik <strong>Batal</strong> untuk kembali.</li>
+          </ol>
+          <img src="/images/cairkandekstop/3.png" alt="Modal Ajukan Pencairan Dana pada Desktop Web dengan upload faktur pajak dan catatan" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            Setelah pengajuan dikirim, dana belum langsung masuk ke rekening. Pengajuan akan diproses terlebih dahulu oleh Poolapack.
+          </div>
+
+          <h2 id="dsk-pantau-pengajuan">5. Pantau Riwayat Pengajuan</h2>
+          <p>Untuk memantau pengajuan yang sudah dikirim:</p>
+          <ol>
+            <li>Pada halaman <strong>Pencairan Dana</strong>, buka tab <strong>Riwayat Pengajuan</strong>.</li>
+            <li>Periksa nomor pengajuan, tanggal, rekening tujuan, nominal, dan status prosesnya.</li>
+            <li>Tunggu hingga proses pengajuan selesai sebelum mengecek dana masuk ke rekening.</li>
+          </ol>
+          <img src="/images/cairkandekstop/4.png" alt="Tab Riwayat Pengajuan pada halaman Pencairan Dana Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+        `
+      }
+    ]
+  },
+  {
+    id: '36',
+    slug: 'cara-mengelola-pesanan-masuk-packer',
+    title: 'Cara Mengelola Pesanan Masuk bagi Packer',
+    excerpt: 'Tahap pertama panduan Packer mengelola pesanan masuk: memilih halaman Reguler atau Pre-Order, mengenali ikon proses pesanan, serta menerima atau menolak pesanan yang sudah lunas.',
+    category: 'pesanan',
+    categoryTitle: 'Pesanan',
+    subCategoryId: '2-3',
+    readTime: 4,
+    lastUpdated: '21 September 2026',
+    audience: 'penjual',
+    tags: [
+      'pesanan masuk', 'kelola pesanan', 'pesanan packer', 'packer', 'penjual',
+      'terima pesanan', 'tolak pesanan', 'pesanan lunas', 'pesanan reguler',
+      'transaksi reguler', 'pre order', 'flash sale', 'ready stock', 'sample product',
+      'ikon pesanan', 'status pesanan'
+    ],
+    toc: [
+      { id: 'mob-pilih-halaman-pesanan', text: 'Mobile: Memilih Halaman Pesanan' },
+      { id: 'mob-upload-packing-list', text: 'Mobile: Membuka Upload Packing List' },
+      { id: 'mob-pilih-ekspedisi', text: 'Mobile: Memilih Ekspedisi' },
+      { id: 'mob-penerimaan-pesanan', text: 'Mobile: Proses Penerimaan Pesanan' },
+      { id: 'mob-ulasan-pesanan', text: 'Mobile: Proses Ulasan Pesanan' },
+      { id: 'dsk-pilih-halaman-pesanan', text: 'Desktop: Memilih Reguler atau Pre-Order' },
+      { id: 'dsk-upload-packing-list', text: 'Desktop: Membuka Upload Packing List' },
+      { id: 'dsk-pilih-ekspedisi', text: 'Desktop: Memilih Ekspedisi' },
+      { id: 'dsk-penerimaan-pesanan', text: 'Desktop: Proses Penerimaan Pesanan' },
+      { id: 'dsk-ulasan-pesanan', text: 'Desktop: Proses Ulasan Pesanan' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-pilih-halaman-pesanan', text: '1. Memilih Halaman Pesanan' },
+          { id: 'mob-upload-packing-list', text: '2. Membuka Upload Packing List' },
+          { id: 'mob-pilih-ekspedisi', text: '3. Memilih Ekspedisi' },
+          { id: 'mob-penerimaan-pesanan', text: '4. Proses Penerimaan Pesanan' },
+          { id: 'mob-ulasan-pesanan', text: '5. Proses Ulasan Pesanan' }
+        ],
+        content: `
+          <div class="callout callout-info">
+            <strong>Cakupan Panduan:</strong> Panduan ini membahas alur lengkap pengelolaan pesanan masuk bagi Packer, mulai dari konfirmasi pesanan (terima atau tolak), pembuatan Packing List, pemilihan ekspedisi dan input nomor resi pengiriman, hingga proses konfirmasi penerimaan barang dan ulasan dari Pooler.
+          </div>
+
+          <h2 id="mob-pilih-halaman-pesanan">1. Memilih Halaman Pesanan</h2>
+          <p>Setelah login sebagai <strong>Packer</strong>, buka halaman <strong>Pesanan</strong>. Gunakan pembagian halaman sesuai jenis produk yang dipesan:</p>
+          <ul>
+            <li><strong>Reguler:</strong> digunakan untuk pesanan <strong>Flash Sale</strong>, <strong>Ready Stock</strong>, dan <strong>Sample Product</strong>.</li>
+            <li><strong>Pre-Order:</strong> digunakan khusus untuk pesanan produk <strong>Pre-Order (PO)</strong>.</li>
+          </ul>
+          <p>Ketuk ikon menu di kiri atas untuk membuka navigasi Packer, lalu pilih <strong>Pesanan &gt; Reguler</strong>. Untuk pesanan PO, pilih <strong>Pesanan &gt; Pre-Order</strong>.</p>
+          <img src="/images/kelolapmobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Pesanan Reguler dan Pre-Order" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Pada halaman Reguler, Anda dapat mempersempit daftar menggunakan filter <strong>Ready Stock</strong>, <strong>Sample</strong>, atau <strong>Flash Sale</strong>. Pilih filter sesuai jenis pesanan yang ingin dikelola.</p>
+          <p>Untuk memproses pesanan yang sudah lunas, ketuk ikon tindakan pada baris pesanan. Menu tindakan akan terbuka dan menampilkan pilihan <strong>Terima Pesanan</strong> atau <strong>Tolak Pesanan</strong>.</p>
+          <img src="/images/kelolapmobile/2.png" alt="Daftar Pesanan Reguler Mobile Web dengan ikon proses dan pilihan Terima Pesanan atau Tolak Pesanan" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-upload-packing-list">2. Membuka Upload Packing List</h2>
+          <p>Setelah memilih <strong>Terima Pesanan</strong>, lanjutkan dengan mengetuk ikon proses berikutnya pada baris pesanan. Ikon yang disorot pada gambar berikut adalah ikon yang perlu diketuk untuk melanjutkan proses.</p>
+          <img src="/images/kelolapmobile/3.png" alt="Ikon proses berikutnya yang harus diklik pada daftar Pesanan Reguler Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Setelah ikon tersebut diketuk, sistem akan menampilkan popup <strong>Upload Packing List</strong>. Popup ini digunakan untuk mengisi atau mengunggah data packing list pesanan.</p>
+          <img src="/images/kelolapmobile/4.png" alt="Popup Upload Packing List pada Pesanan Reguler Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            <strong>Catatan:</strong> Pengisian atau pengunggahan packing list merupakan tahap berikutnya. Pada tahap ini, cukup buka popup <strong>Upload Packing List</strong> terlebih dahulu.
+          </div>
+
+          <h2 id="mob-pilih-ekspedisi">3. Memilih Ekspedisi</h2>
+          <p>Setelah packing list selesai, lanjutkan ke proses pengiriman dengan mengetuk ikon <strong>truck</strong> pada baris pesanan.</p>
+          <img src="/images/kelolapmobile/5.png" alt="Ikon ekspedisi yang harus diklik pada daftar Pesanan Reguler Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Popup <strong>Buat Pengiriman oleh Ekspedisi</strong> akan terbuka. Lengkapi data pengiriman berikut:</p>
+          <ol>
+            <li>Pada bagian <strong>Tambahkan Detail Ekspedisi</strong>, pilih ekspedisi pada kolom <strong>Pilih Ekspedisi</strong>.</li>
+            <li>Isi <strong>Nomor Resi</strong> jika nomor resi sudah tersedia.</li>
+            <li>Pada bagian <strong>Pilih Detail Pesanan</strong>, pilih detail pesanan yang akan dikirim.</li>
+            <li>Perhatikan informasi bahwa <strong>Packing List dan Surat Jalan akan dibuat setelah Anda membuat pengiriman</strong>.</li>
+          </ol>
+          <img src="/images/kelolapmobile/6.png" alt="Popup Buat Pengiriman oleh Ekspedisi pada Mobile Web dengan pilihan ekspedisi, nomor resi, dan detail pesanan" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+
+          <h2 id="mob-penerimaan-pesanan">4. Proses Penerimaan Pesanan</h2>
+          <p>Setelah pengiriman dibuat dan barang dikirim, ikon penerimaan pada baris pesanan menunjukkan proses konfirmasi penerimaan barang.</p>
+          <img src="/images/kelolapmobile/7.png" alt="Ikon proses penerimaan pesanan pada daftar Pesanan Reguler Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol>
+            <li>Pooler atau pembeli menerima barang yang dikirim oleh Packer.</li>
+            <li>Pooler melakukan konfirmasi bahwa pesanan sudah diterima melalui aplikasinya sendiri.</li>
+            <li>Setelah konfirmasi penerimaan dilakukan oleh Pooler, proses pada sisi Packer akan berubah ke tahap berikutnya.</li>
+          </ol>
+
+          <h2 id="mob-ulasan-pesanan">5. Proses Ulasan Pesanan</h2>
+          <p>Setelah barang dikonfirmasi diterima, Pooler perlu memberikan ulasan terhadap produk yang diterima.</p>
+          <img src="/images/kelolapmobile/8.png" alt="Ikon proses ulasan pesanan pada daftar Pesanan Reguler Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol>
+            <li>Pooler memberikan ulasan untuk produk melalui aplikasinya.</li>
+            <li>Setelah ulasan dikirim, indikator proses ulasan pada sisi Packer berubah menjadi <strong>hijau</strong>.</li>
+            <li>Status tersebut menandakan bahwa Packer dapat memberikan respons terhadap ulasan Pooler.</li>
+            <li>Setelah tahap ulasan selesai, pesanan dianggap selesai dan produk telah diterima oleh Pooler.</li>
+          </ol>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-pilih-halaman-pesanan', text: '1. Memilih Reguler atau Pre-Order' },
+          { id: 'dsk-upload-packing-list', text: '2. Membuka Upload Packing List' },
+          { id: 'dsk-pilih-ekspedisi', text: '3. Memilih Ekspedisi' },
+          { id: 'dsk-penerimaan-pesanan', text: '4. Proses Penerimaan Pesanan' },
+          { id: 'dsk-ulasan-pesanan', text: '5. Proses Ulasan Pesanan' }
+        ],
+        content: `
+          <div class="callout callout-info">
+            <strong>Cakupan Panduan:</strong> Panduan ini membahas alur lengkap pengelolaan pesanan masuk bagi Packer, mulai dari konfirmasi pesanan (terima atau tolak), pembuatan Packing List, pemilihan ekspedisi dan input nomor resi pengiriman, hingga proses konfirmasi penerimaan barang dan ulasan dari Pooler.
+          </div>
+
+          <h2 id="dsk-pilih-halaman-pesanan">1. Memilih Reguler atau Pre-Order</h2>
+          <p>Setelah login sebagai <strong>Packer</strong>, buka menu <strong>Transaksi</strong> pada navigasi di sisi kiri, lalu pilih halaman sesuai jenis produk:</p>
+          <ul>
+            <li><strong>Reguler:</strong> digunakan untuk pesanan <strong>Flash Sale</strong>, <strong>Ready Stock</strong>, dan <strong>Sample Product</strong>.</li>
+            <li><strong>Pre-Order:</strong> digunakan khusus untuk pesanan produk <strong>Pre-Order (PO)</strong>.</li>
+          </ul>
+          <p>Di halaman Reguler, gunakan filter kategori <strong>Ready Stock</strong>, <strong>Sample</strong>, atau <strong>Flash Sale</strong> untuk menampilkan jenis pesanan yang ingin dikelola. Untuk pesanan PO, buka halaman <strong>Pre-Order</strong> secara terpisah.</p>
+          <img src="/images/kelolapdekstop/1.png" alt="Daftar Pesanan Reguler Desktop Web dengan menu Reguler, Pre-Order, dan filter kategori" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-upload-packing-list">2. Membuka Upload Packing List</h2>
+          <p>Pada setiap baris pesanan, klik ikon tindakan yang disorot untuk membuka pilihan tindakan pesanan.</p>
+          <ol>
+            <li>Klik ikon proses pada baris pesanan yang ingin dikelola.</li>
+            <li>Pada menu yang muncul, pilih <strong>Terima Pesanan</strong> jika pesanan akan diproses, atau pilih <strong>Tolak Pesanan</strong> jika pesanan tidak dapat dipenuhi.</li>
+          </ol>
+          <img src="/images/kelolapdekstop/2.png" alt="Menu tindakan Terima Pesanan dan Tolak Pesanan pada daftar Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Setelah memilih <strong>Terima Pesanan</strong>, klik ikon proses berikutnya pada baris pesanan untuk melanjutkan ke tahap packing list.</p>
+          <img src="/images/kelolapdekstop/3.png" alt="Ikon proses berikutnya yang harus diklik pada daftar Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Setelah ikon tersebut diklik, sistem akan menampilkan popup <strong>Upload Packing List</strong>. Popup ini digunakan untuk mengisi atau mengunggah data packing list pesanan.</p>
+          <img src="/images/kelolapdekstop/4.png" alt="Popup Upload Packing List pada Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            <strong>Catatan:</strong> Pengisian atau pengunggahan packing list merupakan tahap berikutnya. Pada tahap ini, cukup buka popup <strong>Upload Packing List</strong> terlebih dahulu.
+          </div>
+
+          <h2 id="dsk-pilih-ekspedisi">3. Memilih Ekspedisi</h2>
+          <p>Setelah packing list selesai, lanjutkan ke proses pengiriman dengan mengklik ikon <strong>truck</strong> pada baris pesanan.</p>
+          <img src="/images/kelolapdekstop/5.png" alt="Ikon ekspedisi yang harus diklik pada daftar Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Popup <strong>Buat Pengiriman oleh Ekspedisi</strong> akan terbuka. Lengkapi data pengiriman berikut:</p>
+          <ol>
+            <li>Pada bagian <strong>Tambahkan Detail Ekspedisi</strong>, pilih ekspedisi pada kolom <strong>Pilih Ekspedisi</strong>.</li>
+            <li>Isi <strong>Nomor Resi</strong> jika nomor resi sudah tersedia.</li>
+            <li>Pada bagian <strong>Pilih Detail Pesanan</strong>, centang detail pesanan yang akan dikirim.</li>
+            <li>Perhatikan informasi bahwa <strong>Packing List dan Surat Jalan akan dibuat setelah Anda membuat pengiriman</strong>.</li>
+          </ol>
+          <img src="/images/kelolapdekstop/6.png" alt="Popup Buat Pengiriman oleh Ekspedisi pada Desktop Web dengan pilihan ekspedisi, nomor resi, dan detail pesanan" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-penerimaan-pesanan">4. Proses Penerimaan Pesanan</h2>
+          <p>Setelah pengiriman dibuat dan barang dikirim, ikon penerimaan pada baris pesanan menunjukkan proses konfirmasi penerimaan barang.</p>
+          <img src="/images/kelolapdekstop/7.png" alt="Ikon proses penerimaan pesanan pada daftar Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <ol>
+            <li>Pooler atau pembeli menerima barang yang dikirim oleh Packer.</li>
+            <li>Pooler melakukan konfirmasi bahwa pesanan sudah diterima melalui aplikasinya sendiri.</li>
+            <li>Setelah konfirmasi penerimaan dilakukan oleh Pooler, proses pada sisi Packer akan berubah ke tahap berikutnya.</li>
+          </ol>
+
+          <h2 id="dsk-ulasan-pesanan">5. Proses Ulasan Pesanan</h2>
+          <p>Setelah barang dikonfirmasi diterima, Pooler perlu memberikan ulasan terhadap produk yang diterima.</p>
+          <img src="/images/kelolapdekstop/8.png" alt="Ikon proses ulasan pesanan pada daftar Pesanan Reguler Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <ol>
+            <li>Pooler memberikan ulasan untuk produk melalui aplikasinya.</li>
+            <li>Setelah ulasan dikirim, indikator proses ulasan pada sisi Packer berubah menjadi <strong>hijau</strong>.</li>
+            <li>Status tersebut menandakan bahwa Packer dapat memberikan respons terhadap ulasan Pooler.</li>
+            <li>Setelah tahap ulasan selesai, pesanan dianggap selesai dan produk telah diterima oleh Pooler.</li>
+          </ol>
+        `
+      }
+    ]
+  },
+  {
+    id: '37',
+    slug: 'cara-mengelola-pesanan-pre-order-packer',
+    title: 'Cara Mengelola Pesanan Pre-Order bagi Packer',
+    excerpt: 'Panduan Packer mengelola pesanan Pre-Order: memilih pesanan, memahami pembayaran DP dan termin, membuat Packing List, membuat pengiriman, hingga menunggu konfirmasi penerimaan dari Pooler.',
+    category: 'pesanan',
+    categoryTitle: 'Pesanan',
+    subCategoryId: '2-3',
+    readTime: 6,
+    lastUpdated: '22 September 2026',
+    audience: 'penjual',
+    tags: [
+      'pre order packer', 'pesanan pre order', 'pesanan po', 'kelola pesanan po',
+      'packer center', 'packer', 'penjual', 'terima pesanan', 'tolak pesanan',
+      'dp', 'down payment', 'pelunasan', 'termin', 'pembayaran bertahap',
+      'packing list', 'buat packing list', 'buat pengiriman', 'ekspedisi',
+      'unduh dokumen', 'konfirmasi penerimaan', 'pesanan diterima', 'status hijau', 'pesanan masuk'
+    ],
+    toc: [
+      { id: 'mob-akses-pesanan-po', text: 'Mobile: Membuka Pesanan Pre-Order' },
+      { id: 'mob-terima-pesanan-po', text: 'Mobile: Menerima atau Menolak Pesanan' },
+      { id: 'mob-buat-packing-list-po', text: 'Mobile: Membuat Packing List' },
+      { id: 'mob-termin-pembayaran-po', text: 'Mobile: Memahami DP dan Termin' },
+      { id: 'mob-buat-pengiriman-po', text: 'Mobile: Membuat Pengiriman' },
+      { id: 'mob-konfirmasi-penerimaan-po', text: 'Mobile: Menunggu Konfirmasi Penerimaan' },
+      { id: 'dsk-akses-pesanan-po', text: 'Desktop: Membuka Pesanan Pre-Order' },
+      { id: 'dsk-terima-pesanan-po', text: 'Desktop: Menerima atau Menolak Pesanan' },
+      { id: 'dsk-buat-packing-list-po', text: 'Desktop: Membuat Packing List' },
+      { id: 'dsk-termin-pembayaran-po', text: 'Desktop: Memahami DP dan Termin' },
+      { id: 'dsk-buat-pengiriman-po', text: 'Desktop: Membuat Pengiriman' },
+      { id: 'dsk-konfirmasi-penerimaan-po', text: 'Desktop: Menunggu Konfirmasi Penerimaan' }
+    ],
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-akses-pesanan-po', text: '1. Membuka Pesanan Pre-Order' },
+          { id: 'mob-terima-pesanan-po', text: '2. Menerima atau Menolak Pesanan' },
+          { id: 'mob-buat-packing-list-po', text: '3. Membuat Packing List' },
+          { id: 'mob-termin-pembayaran-po', text: '4. Memahami DP dan Termin' },
+          { id: 'mob-buat-pengiriman-po', text: '5. Membuat Pengiriman' },
+          { id: 'mob-konfirmasi-penerimaan-po', text: '6. Menunggu Konfirmasi Penerimaan' }
+        ],
+        content: `
+          <p>Panduan ini menjelaskan cara Packer mengelola pesanan <strong>Pre-Order</strong> melalui Packer Center di browser smartphone, mulai dari menerima pesanan, memantau pembayaran DP dan termin, hingga menunggu konfirmasi penerimaan dari Pooler.</p>
+
+          <h2 id="mob-akses-pesanan-po">1. Membuka Pesanan Pre-Order</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Ketuk ikon <strong>menu</strong> (tiga garis) di pojok kiri atas.</li>
+            <li>Pilih menu <strong>Pesanan</strong>, lalu ketuk <strong>Pre-Order</strong>.</li>
+          </ol>
+          <img src="/images/kelolPomobile/1.png" alt="Menu Packer Center Mobile Web dengan pilihan Pesanan Pre-Order" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Halaman <strong>Daftar Pesanan Pre-Order</strong> menampilkan pesanan PO beserta total item, satuan, tanggal order, due date, status, dan aksi yang tersedia.</p>
+
+          <h2 id="mob-terima-pesanan-po">2. Menerima atau Menolak Pesanan</h2>
+          <p>Pada baris pesanan yang ingin diproses, ketuk ikon tindakan pada alur status pesanan.</p>
+          <ol>
+            <li>Pilih <strong>Terima Pesanan</strong> jika pesanan dapat diproses oleh Packer.</li>
+            <li>Pilih <strong>Tolak Pesanan</strong> jika pesanan tidak dapat dipenuhi.</li>
+          </ol>
+          <img src="/images/kelolPomobile/2.png" alt="Menu tindakan Terima Pesanan dan Tolak Pesanan pada daftar Pre-Order Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            Setelah memilih <strong>Terima Pesanan</strong>, proses setiap term sesuai statusnya. Jangan membuat pengiriman sebelum pembayaran dan persiapan term selesai.
+          </div>
+
+          <h2 id="mob-buat-packing-list-po">3. Membuat Packing List</h2>
+          <p>Pada term yang sudah tersedia untuk diproses, buka detail alur pesanan. Pada bagian <strong>Aksi</strong>, ketuk <strong>Buat Packing List</strong>.</p>
+          <img src="/images/kelolPomobile/3.png" alt="Tombol Buat Packing List pada detail pesanan Pre-Order Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Pada popup <strong>Upload Packing List</strong>, masukkan data roll yang akan dikirim:</p>
+          <ol>
+            <li>Gunakan tombol <strong>Excel</strong> untuk mengimpor data menggunakan template CSV, atau isi <strong>Kode Roll</strong> dan <strong>Jumlah</strong> secara manual.</li>
+            <li>Ketuk <strong>Tambah</strong> untuk memasukkan data ke daftar.</li>
+            <li>Periksa <strong>Total Volume</strong>. Setelah data roll ditambahkan dan lengkap, ketuk <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/kelolPomobile/4.png" alt="Popup Upload Packing List Pre-Order pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Pada tampilan awal, <strong>Total Volume</strong> masih 0 dan tombol <strong>Simpan</strong> belum aktif. Tambahkan data roll terlebih dahulu, lalu pastikan kode roll dan jumlahnya sesuai barang yang akan dikirim.
+          </div>
+
+          <h2 id="mob-termin-pembayaran-po">4. Memahami DP dan Termin Pembayaran</h2>
+          <p>Pesanan Pre-Order menggunakan pembayaran bertahap:</p>
+          <ol>
+            <li><strong>DP (Down Payment):</strong> Pooler membayar uang muka terlebih dahulu untuk mengonfirmasi pesanan dan memulai proses produksi.</li>
+            <li><strong>Pelunasan:</strong> Setelah produksi berjalan atau selesai, sisa pembayaran dilakukan sesuai termin yang tersedia.</li>
+          </ol>
+          <p>Pelunasan dapat dilakukan dalam satu kali pembayaran atau beberapa termin, tergantung kesepakatan dan kondisi Pooler maupun Packer.</p>
+          <ul>
+            <li>Jika pesanan menggunakan <strong>2 termin</strong>, pelunasan dilakukan bertahap: pembayaran termin 1, kemudian pembayaran termin 2.</li>
+            <li>Jika produksi Packer belum menghasilkan seluruh jumlah pesanan sekaligus, kuantitas dapat dibagi ke beberapa termin. Contohnya, jika pesanan awalnya direncanakan 1 termin tetapi produksi baru menghasilkan sebagian kuantitas, hasil yang sudah siap dapat dimasukkan ke <strong>termin 1</strong> dan sisanya ke <strong>termin 2</strong>.</li>
+          </ul>
+          <p>Periksa kolom <strong>Term</strong>, <strong>Target QTY</strong>, <strong>Terkirim</strong>, <strong>Due Date</strong>, dan <strong>Status</strong> pada detail pesanan. Jika status masih menunggu Pooler membayar termin, tunggu pembayaran tersebut sebelum melanjutkan proses pada termin terkait.</p>
+          <img src="/images/kelolPomobile/5.png" alt="Detail termin pesanan Pre-Order Mobile Web saat menunggu Pooler membayar termin" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            Jumlah termin tidak selalu sama dengan rencana awal Pooler. Packer dapat membagi termin berdasarkan jumlah produk yang benar-benar selesai diproduksi dan siap diproses.
+          </div>
+
+          <h2 id="mob-buat-pengiriman-po">5. Membuat Pengiriman</h2>
+          <p>Setelah Packing List tersimpan dan pembayaran termin terkonfirmasi, buka detail alur pesanan yang sudah siap dikirim. Status setiap term dapat berbeda karena pembayaran dan kesiapan produksi bisa berlangsung bertahap.</p>
+          <ol>
+            <li>Pada term yang siap dikirim, ketuk ikon untuk membuka detail aksi pesanan.</li>
+            <li>Ketuk <strong>Buat Pengiriman</strong>. Pilihan <strong>Lihat Packing List</strong> dapat digunakan untuk memeriksa data yang sudah dibuat.</li>
+          </ol>
+          <img src="/images/kelolPomobile/6.png" alt="Menu aksi Buat Pengiriman dan Lihat Packing List pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <p>Pada popup <strong>Buat Pengiriman oleh Ekspedisi</strong>:</p>
+          <ol>
+            <li>Pilih ekspedisi pada kolom <strong>Pilih Ekspedisi</strong>.</li>
+            <li>Isi <strong>Nomor Resi</strong> jika sudah tersedia.</li>
+            <li>Lengkapi field wajib, periksa kembali ekspedisi dan nomor resi, lalu ketuk <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/kelolPomobile/7.png" alt="Popup Buat Pengiriman oleh Ekspedisi pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Pada screenshot, daftar ekspedisi sedang terbuka dan tombol <strong>Simpan</strong> masih nonaktif karena data pengiriman belum lengkap. Pilih ekspedisi dan lengkapi field wajib terlebih dahulu.
+          </div>
+
+          <h2 id="mob-konfirmasi-penerimaan-po">6. Menunggu Konfirmasi Penerimaan Pooler</h2>
+          <p>Setelah pengiriman dibuat dan barang dikirim, proses belum selesai. Packer perlu menunggu Pooler mengonfirmasi bahwa barang sudah diterima melalui aplikasi Pooler.</p>
+          <ol>
+            <li>Pooler menerima barang yang dikirim oleh Packer.</li>
+            <li>Pooler membuka pesanan di aplikasi Pooler, lalu menekan tombol konfirmasi bahwa pesanan sudah diterima.</li>
+            <li>Selama Pooler belum melakukan konfirmasi, status penerimaan pada alur pesanan masih berwarna <strong>kuning</strong>.</li>
+            <li>Setelah Pooler menekan konfirmasi penerimaan, status tersebut berubah menjadi <strong>hijau</strong> sebagai tanda bahwa barang sudah dikonfirmasi diterima.</li>
+          </ol>
+          <img src="/images/kelolPomobile/8.png" alt="Status penerimaan pesanan Pre-Order Mobile Web setelah proses pengiriman" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            Tombol <strong>Unduh Dokumen</strong> pada bagian <strong>Aksi</strong> digunakan untuk mengunduh dokumen yang tersedia. Tombol tersebut bukan tanda bahwa Pooler sudah mengonfirmasi penerimaan; konfirmasi selesai setelah Pooler menekan tombol penerimaan di aplikasinya.
+          </div>
+          <p>Jika pesanan memiliki lebih dari satu termin, setiap termin dapat memiliki status yang berbeda. Termin berikutnya dapat tetap menampilkan tombol <strong>Buat Packing List</strong> sampai siap diproses.</p>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-akses-pesanan-po', text: '1. Membuka Pesanan Pre-Order' },
+          { id: 'dsk-terima-pesanan-po', text: '2. Menerima atau Menolak Pesanan' },
+          { id: 'dsk-buat-packing-list-po', text: '3. Membuat Packing List' },
+          { id: 'dsk-termin-pembayaran-po', text: '4. Memahami DP dan Termin' },
+          { id: 'dsk-buat-pengiriman-po', text: '5. Membuat Pengiriman' },
+          { id: 'dsk-konfirmasi-penerimaan-po', text: '6. Menunggu Konfirmasi Penerimaan' }
+        ],
+        content: `
+          <p>Panduan ini menjelaskan cara Packer mengelola pesanan <strong>Pre-Order</strong> melalui Packer Center di komputer atau laptop, mulai dari menerima pesanan, memantau pembayaran DP dan termin, hingga menunggu konfirmasi penerimaan dari Pooler.</p>
+
+          <h2 id="dsk-akses-pesanan-po">1. Membuka Pesanan Pre-Order</h2>
+          <ol>
+            <li>Login ke akun Packer, lalu buka <strong>Packer Center</strong>.</li>
+            <li>Pada menu di sebelah kiri, pilih <strong>Pesanan</strong>.</li>
+            <li>Pilih halaman <strong>Pre-Order</strong> untuk menampilkan daftar pesanan PO.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/1.png" alt="Halaman Daftar Pesanan Pre-Order pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Halaman <strong>Daftar Pesanan Pre-Order</strong> menampilkan pesanan PO beserta total item, satuan, tanggal order, due date, status, dan aksi yang tersedia.</p>
+
+          <h2 id="dsk-terima-pesanan-po">2. Menerima atau Menolak Pesanan</h2>
+          <p>Pada baris pesanan yang ingin diproses, klik ikon tindakan pada alur status pesanan.</p>
+          <ol>
+            <li>Pilih <strong>Terima Pesanan</strong> jika pesanan dapat diproses oleh Packer.</li>
+            <li>Pilih <strong>Tolak Pesanan</strong> jika pesanan tidak dapat dipenuhi.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/2.png" alt="Menu tindakan Terima Pesanan dan Tolak Pesanan pada daftar Pre-Order Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            Setelah memilih <strong>Terima Pesanan</strong>, proses setiap term sesuai statusnya. Jangan membuat pengiriman sebelum pembayaran dan persiapan term selesai.
+          </div>
+
+          <h2 id="dsk-buat-packing-list-po">3. Membuat Packing List</h2>
+          <p>Pada term yang sudah tersedia untuk diproses, buka detail alur pesanan. Pada bagian <strong>Aksi</strong>, klik <strong>Buat Packing List</strong>.</p>
+          <img src="/images/kelolPodekstop/3.png" alt="Tombol Buat Packing List pada detail pesanan Pre-Order Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Pada popup <strong>Upload Packing List</strong>, masukkan data roll yang akan dikirim:</p>
+          <ol>
+            <li>Gunakan tombol <strong>Excel</strong> untuk mengimpor data menggunakan template CSV, atau isi <strong>Kode Roll</strong> dan <strong>Jumlah</strong> secara manual.</li>
+            <li>Klik <strong>Tambah</strong> untuk memasukkan data ke daftar.</li>
+            <li>Periksa <strong>Total Volume</strong>. Setelah data roll ditambahkan dan lengkap, klik <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/4.png" alt="Popup Upload Packing List Pre-Order pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-warning">
+            Pada tampilan awal, <strong>Total Volume</strong> masih 0 dan tombol <strong>Simpan</strong> belum aktif. Tambahkan data roll terlebih dahulu, lalu pastikan kode roll dan jumlahnya sesuai barang yang akan dikirim.
+          </div>
+
+          <h2 id="dsk-termin-pembayaran-po">4. Memahami DP dan Termin Pembayaran</h2>
+          <p>Pesanan Pre-Order menggunakan pembayaran bertahap:</p>
+          <ol>
+            <li><strong>DP (Down Payment):</strong> Pooler membayar uang muka terlebih dahulu untuk mengonfirmasi pesanan dan memulai proses produksi.</li>
+            <li><strong>Pelunasan:</strong> Setelah produksi berjalan atau selesai, sisa pembayaran dilakukan sesuai termin yang tersedia.</li>
+          </ol>
+          <p>Pelunasan dapat dilakukan dalam satu kali pembayaran atau beberapa termin, tergantung kesepakatan dan kondisi Pooler maupun Packer.</p>
+          <ul>
+            <li>Jika pesanan menggunakan <strong>2 termin</strong>, pelunasan dilakukan bertahap: pembayaran termin 1, kemudian pembayaran termin 2.</li>
+            <li>Jika produksi Packer belum menghasilkan seluruh jumlah pesanan sekaligus, kuantitas dapat dibagi ke beberapa termin. Contohnya, jika pesanan awalnya direncanakan 1 termin tetapi produksi baru menghasilkan sebagian kuantitas, hasil yang sudah siap dapat dimasukkan ke <strong>termin 1</strong> dan sisanya ke <strong>termin 2</strong>.</li>
+          </ul>
+          <p>Periksa kolom <strong>Term</strong>, <strong>Target QTY</strong>, <strong>Terkirim</strong>, <strong>Due Date</strong>, dan <strong>Status</strong> pada detail pesanan. Jika status masih menunggu Pooler membayar termin, tunggu pembayaran tersebut sebelum melanjutkan proses pada termin terkait.</p>
+          <img src="/images/kelolPodekstop/5.png" alt="Detail termin pesanan Pre-Order Desktop Web saat menunggu Pooler membayar termin" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            Jumlah termin tidak selalu sama dengan rencana awal Pooler. Packer dapat membagi termin berdasarkan jumlah produk yang benar-benar selesai diproduksi dan siap diproses.
+          </div>
+
+          <h2 id="dsk-buat-pengiriman-po">5. Membuat Pengiriman</h2>
+          <p>Setelah Packing List tersimpan dan pembayaran termin terkonfirmasi, buka detail alur pesanan yang sudah siap dikirim. Status setiap term dapat berbeda karena pembayaran dan kesiapan produksi bisa berlangsung bertahap.</p>
+          <ol>
+            <li>Pada term yang siap dikirim, klik ikon untuk membuka detail aksi pesanan.</li>
+            <li>Klik <strong>Buat Pengiriman</strong>. Pilihan <strong>Lihat Packing List</strong> dapat digunakan untuk memeriksa data yang sudah dibuat.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/6.png" alt="Menu aksi Buat Pengiriman dan Lihat Packing List pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <p>Pada popup <strong>Buat Pengiriman oleh Ekspedisi</strong>:</p>
+          <ol>
+            <li>Pilih ekspedisi pada kolom <strong>Pilih Ekspedisi</strong>.</li>
+            <li>Isi <strong>Nomor Resi</strong> jika sudah tersedia.</li>
+            <li>Lengkapi field wajib, periksa kembali ekspedisi dan nomor resi, lalu klik <strong>Simpan</strong>.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/7.png" alt="Popup Buat Pengiriman oleh Ekspedisi pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-warning">
+            Pada screenshot, daftar ekspedisi sedang terbuka dan tombol <strong>Simpan</strong> masih nonaktif karena data pengiriman belum lengkap. Pilih ekspedisi dan lengkapi field wajib terlebih dahulu.
+          </div>
+
+          <h2 id="dsk-konfirmasi-penerimaan-po">6. Menunggu Konfirmasi Penerimaan Pooler</h2>
+          <p>Setelah pengiriman dibuat dan barang dikirim, proses belum selesai. Packer perlu menunggu Pooler mengonfirmasi bahwa barang sudah diterima melalui aplikasi Pooler.</p>
+          <ol>
+            <li>Pooler menerima barang yang dikirim oleh Packer.</li>
+            <li>Pooler membuka pesanan di aplikasi Pooler, lalu menekan tombol konfirmasi bahwa pesanan sudah diterima.</li>
+            <li>Selama Pooler belum melakukan konfirmasi, status penerimaan pada alur pesanan masih berwarna <strong>kuning</strong>.</li>
+            <li>Setelah Pooler menekan konfirmasi penerimaan, status tersebut berubah menjadi <strong>hijau</strong> sebagai tanda bahwa barang sudah dikonfirmasi diterima.</li>
+          </ol>
+          <img src="/images/kelolPodekstop/8.png" alt="Status penerimaan pesanan Pre-Order Desktop Web setelah proses pengiriman" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-info">
+            Tombol <strong>Unduh Dokumen</strong> pada bagian <strong>Aksi</strong> digunakan untuk mengunduh dokumen yang tersedia. Tombol tersebut bukan tanda bahwa Pooler sudah mengonfirmasi penerimaan; konfirmasi selesai setelah Pooler menekan tombol penerimaan di aplikasinya.
+          </div>
+          <p>Jika pesanan memiliki lebih dari satu termin, setiap termin dapat memiliki status yang berbeda. Termin berikutnya dapat tetap menampilkan tombol <strong>Buat Packing List</strong> sampai siap diproses.</p>
+        `
+      }
+    ]
   },
 
   // ── Promo & Reward (Diskon 1% Identitas, PoolPoint, PoolPay) ───────────────
@@ -1808,7 +3109,7 @@ export const articles: Article[] = [
   {
     id: '23',
     slug: 'apa-itu-poolpay',
-    title: 'Apa Itu PoolPay dan Cara Menggunakan Saldo PoolPay?',
+    title: 'Apa Itu Saldo PoolPay dan Cara Mencairkannya',
     excerpt: 'Pahami PoolPay — saldo digital otomatis yang didapat Pooler (pembeli) saat transaksi dibatalkan admin — serta cara menggunakannya untuk belanja atau mencairkan ke rekening.',
     category: 'promo',
     categoryTitle: 'Promo & Reward',
@@ -1826,42 +3127,132 @@ export const articles: Article[] = [
       { id: 'cara-pakai-poolpay', text: 'Cara Berbelanja dengan PoolPay' },
       { id: 'cara-cairkan', text: 'Cara Mencairkan Saldo PoolPay' }
     ],
-    content: `
-      <h2 id="apa-poolpay">Apa Itu PoolPay?</h2>
-      <p>PoolPay adalah dompet saldo digital bawaan akun <strong>Pooler (pembeli)</strong> di Poolapack. Saldo PoolPay berfungsi sebagai tempat penampungan pengembalian dana (refund) yang terjadi akibat pembatalan transaksi oleh admin. Saldo ini dapat digunakan langsung untuk berbelanja produk berikutnya atau dicairkan ke rekening bank Anda.</p>
+    content: '',
+    platforms: [
+      {
+        label: 'Mobile (Web)',
+        icon: 'ph:device-mobile-bold',
+        toc: [
+          { id: 'mob-apa-poolpay', text: 'Apa Itu PoolPay?' },
+          { id: 'mob-cara-dapat-saldo', text: 'Bagaimana Saldo PoolPay Masuk?' },
+          { id: 'mob-cara-pakai-poolpay', text: 'Cara Berbelanja dengan PoolPay' },
+          { id: 'mob-cara-cairkan', text: 'Cara Mencairkan Saldo PoolPay' },
+          { id: 'mob-log-pencairan', text: 'Melihat Log dan Proses Pencairan' }
+        ],
+        content: `
+          <h2 id="mob-apa-poolpay">Apa Itu PoolPay?</h2>
+          <p>PoolPay adalah dompet saldo digital bawaan akun <strong>Pooler (pembeli)</strong> di Poolapack. Saldo PoolPay berfungsi sebagai tempat penampungan pengembalian dana (refund) yang terjadi akibat pembatalan transaksi oleh admin. Saldo ini dapat digunakan langsung untuk berbelanja produk berikutnya atau diajukan untuk dicairkan ke rekening bank.</p>
 
-      <h2 id="cara-dapat-saldo">Bagaimana Saldo PoolPay Masuk?</h2>
-      <p>Saldo PoolPay akan otomatis masuk jika terjadi kondisi berikut:</p>
-      <ul>
-        <li>Transaksi <strong>dibatalkan oleh admin</strong> Poolapack (misalnya karena stok habis mendadak, kendala produksi, atau situasi lain di luar kendali).</li>
-        <li>Anda sudah melakukan pembayaran sebelum pembatalan terjadi.</li>
-      </ul>
-      <div class="callout callout-info">
-        <strong>Catatan:</strong> Dana yang dikembalikan ke PoolPay setara dengan nominal yang telah dibayarkan oleh Pooler. Proses masuk ke PoolPay bersifat otomatis tanpa perlu pengajuan manual dari Anda.
-      </div>
+          <h2 id="mob-cara-dapat-saldo">Bagaimana Saldo PoolPay Masuk?</h2>
+          <p>Saldo PoolPay akan otomatis masuk jika terjadi kondisi berikut:</p>
+          <ul>
+            <li>Transaksi <strong>dibatalkan oleh admin</strong> Poolapack, misalnya karena stok habis mendadak atau kendala produksi.</li>
+            <li>Anda sudah melakukan pembayaran sebelum pembatalan terjadi.</li>
+          </ul>
+          <div class="callout callout-info">
+            <strong>Catatan:</strong> Dana yang dikembalikan ke PoolPay setara dengan nominal yang telah dibayarkan oleh Pooler. Proses masuk ke PoolPay bersifat otomatis tanpa perlu pengajuan manual.
+          </div>
 
-      <h2 id="cara-pakai-poolpay">Cara Berbelanja dengan PoolPay</h2>
-      <ol>
-        <li>Pilih produk yang ingin dibeli dan lanjutkan ke halaman checkout.</li>
-        <li>Pada bagian metode pembayaran, pilih opsi <strong>PoolPay</strong>.</li>
-        <li>Jika saldo PoolPay mencukupi, seluruh transaksi akan terlunasi langsung dari saldo.</li>
-        <li>Jika saldo PoolPay tidak mencukupi, Anda dapat menggunakan fitur <strong>+ Tambah Split Pembayaran</strong> untuk mengombinasikannya dengan channel pembayaran lain (seperti BCA Transfer, BCA Espay, atau Virtual Account Bank).</li>
-      </ol>
+          <h2 id="mob-cara-pakai-poolpay">Cara Berbelanja dengan PoolPay</h2>
+          <ol>
+            <li>Pilih produk yang ingin dibeli dan lanjutkan ke halaman checkout.</li>
+            <li>Pada bagian metode pembayaran, pilih opsi <strong>PoolPay</strong>.</li>
+            <li>Jika saldo mencukupi, transaksi terlunasi dari saldo PoolPay.</li>
+            <li>Jika saldo tidak mencukupi, gunakan <strong>+ Tambah Split Pembayaran</strong> untuk membayar sisanya dengan metode pembayaran lain.</li>
+          </ol>
 
-      <h2 id="cara-cairkan">Cara Mencairkan Saldo PoolPay</h2>
-      <p>Jika Anda tidak ingin menggunakan saldo PoolPay untuk belanja, Anda dapat mencairkannya ke rekening bank:</p>
-      <ol>
-        <li>Buka menu <strong>Profil → Saldo & PoolPay</strong>.</li>
-        <li>Klik tombol <strong>Cairkan Saldo</strong>.</li>
-        <li>Masukkan nominal yang ingin dicairkan.</li>
-        <li>Pilih rekening bank tujuan yang sudah terdaftar.</li>
-        <li>Konfirmasi dengan kode OTP yang dikirim ke WhatsApp Anda.</li>
-        <li>Dana akan masuk ke rekening bank dalam <strong>1–2 hari kerja</strong>.</li>
-      </ol>
-      <div class="callout callout-warning">
-        Minimal pencairan saldo PoolPay adalah <strong>Rp 10.000</strong>. Pastikan rekening bank Anda sudah terdaftar dan terverifikasi sebelum melakukan pencairan.
-      </div>
-    `
+          <h2 id="mob-cara-cairkan">Cara Mencairkan Saldo PoolPay</h2>
+          <p>Pengajuan pencairan tidak langsung cair otomatis. Poolapack perlu menerima, memeriksa, dan mengonfirmasi pengajuan terlebih dahulu.</p>
+          <ol>
+            <li>Buka halaman <strong>Akun</strong>, lalu ketuk kartu <strong>PoolPay</strong> pada bagian <strong>Keuangan &amp; Point</strong>.</li>
+          </ol>
+          <img src="/images/refundmobile/1.png" alt="Menu PoolPay pada halaman Akun Mobile Web Poolapack" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol start="2">
+            <li>Pada halaman <strong>PoolPay</strong>, periksa saldo yang tersedia lalu ketuk <strong>Cairkan Saldo</strong>.</li>
+          </ol>
+          <img src="/images/refundmobile/2.png" alt="Halaman PoolPay Mobile Web dengan tombol Cairkan Saldo" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol start="3">
+            <li>Modal <strong>Cairkan Saldo</strong> akan terbuka. Permintaan diproses sesuai antrean; pengajuan setelah pukul <strong>22.00</strong> akan ditangani pada hari kerja berikutnya.</li>
+            <li>Masukkan nominal atau ketuk <strong>Tarik Semua</strong>. Contoh tampilan menunjukkan saldo tersedia <strong>Rp6.100.000</strong> dan nominal masih <strong>Rp0</strong>.</li>
+            <li>Pada <strong>Rekening tujuan</strong>, ketuk <strong>Pilih Rekening</strong> lalu pilih rekening bank tujuan.</li>
+            <li>Isi <strong>Catatan (opsional)</strong> bila diperlukan. Setelah nominal dan rekening benar, ketuk <strong>Cairkan</strong>.</li>
+          </ol>
+          <img src="/images/refundmobile/3.png" alt="Form pencairan saldo PoolPay Mobile Web dengan nominal dan rekening tujuan" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-info">
+            <strong>Catatan:</strong> Pada screenshot, nominal masih <strong>Rp0</strong> sehingga tombol <strong>Cairkan</strong> belum aktif. Isi nominal pencairan terlebih dahulu.
+          </div>
+
+          <h2 id="mob-log-pencairan">Melihat Log dan Proses Pencairan</h2>
+          <ol>
+            <li>Pada halaman PoolPay, ketuk kolom <strong>Jenis Riwayat</strong> yang menampilkan <strong>Aktivitas</strong>.</li>
+          </ol>
+          <img src="/images/refundmobile/4.png" alt="Kolom Jenis Riwayat pada halaman PoolPay Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol start="2">
+            <li>Pada pilihan <strong>Jenis Riwayat</strong>, pilih <strong>Penarikan</strong>.</li>
+          </ol>
+          <img src="/images/refundmobile/5.png" alt="Pilihan jenis riwayat Penarikan pada halaman PoolPay Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <ol start="3">
+            <li>Halaman menampilkan <strong>Histori Pencairan</strong> beserta tanggal, rekening tujuan, nominal, waktu pengajuan, dan status.</li>
+            <li>Status <strong>Menunggu Diproses</strong> berarti pengajuan masih menunggu pemeriksaan atau konfirmasi admin Poolapack, sehingga dana belum cair.</li>
+            <li>Gunakan pilihan jumlah data dan tombol halaman untuk melihat riwayat lainnya.</li>
+          </ol>
+          <img src="/images/refundmobile/6.png" alt="Histori Pencairan dan status pengajuan pada Mobile Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 max-w-xs mx-auto block" />
+          <div class="callout callout-warning">
+            Minimum pencairan saldo PoolPay adalah <strong>Rp10.000</strong>. Pastikan rekening tujuan sudah terdaftar sebelum mengirim pengajuan.
+          </div>
+        `
+      },
+      {
+        label: 'Desktop (Web)',
+        icon: 'ph:monitor-bold',
+        toc: [
+          { id: 'dsk-apa-poolpay', text: 'Apa Itu PoolPay?' },
+          { id: 'dsk-cara-dapat-saldo', text: 'Bagaimana Saldo PoolPay Masuk?' },
+          { id: 'dsk-cara-pakai-poolpay', text: 'Cara Berbelanja dengan PoolPay' },
+          { id: 'dsk-cara-cairkan', text: 'Cara Mencairkan Saldo PoolPay' },
+          { id: 'dsk-log-pencairan', text: 'Melihat Log dan Proses Pencairan' }
+        ],
+        content: `
+          <h2 id="dsk-apa-poolpay">Apa Itu PoolPay?</h2>
+          <p>PoolPay adalah dompet saldo digital bawaan akun <strong>Pooler (pembeli)</strong> di Poolapack. Saldo PoolPay berfungsi sebagai tempat penampungan pengembalian dana (refund) yang terjadi akibat pembatalan transaksi oleh admin. Saldo ini dapat digunakan langsung untuk berbelanja produk berikutnya atau diajukan untuk dicairkan ke rekening bank.</p>
+
+          <h2 id="dsk-cara-dapat-saldo">Bagaimana Saldo PoolPay Masuk?</h2>
+          <p>Saldo PoolPay akan otomatis masuk jika transaksi yang sudah dibayar dibatalkan oleh admin Poolapack, misalnya karena stok habis atau kendala produksi. Dana masuk tanpa pengajuan refund manual.</p>
+
+          <h2 id="dsk-cara-pakai-poolpay">Cara Berbelanja dengan PoolPay</h2>
+          <ol>
+            <li>Pilih produk dan lanjutkan ke halaman checkout.</li>
+            <li>Pilih <strong>PoolPay</strong> pada bagian metode pembayaran.</li>
+            <li>Jika saldo tidak mencukupi, klik <strong>+ Tambah Split Pembayaran</strong> untuk membayar sisa tagihan dengan metode lain.</li>
+          </ol>
+
+          <h2 id="dsk-cara-cairkan">Cara Mencairkan Saldo PoolPay</h2>
+          <p>Pengajuan pencairan tidak langsung cair otomatis. Poolapack perlu menerima, memeriksa, dan mengonfirmasi pengajuan terlebih dahulu.</p>
+          <ol>
+            <li>Buka menu <strong>PoolPay</strong> dari navigasi akun di sisi kiri.</li>
+            <li>Pada halaman PoolPay, klik tombol <strong>Cairkan Saldo</strong> di bagian saldo.</li>
+          </ol>
+          <img src="/images/refunddekstop/1.png" alt="Halaman PoolPay Desktop Web dengan tombol Cairkan Saldo" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <ol start="3">
+            <li>Modal <strong>Cairkan Saldo</strong> akan terbuka. Permintaan diproses sesuai antrean; pengajuan setelah pukul <strong>22.00</strong> akan ditangani pada hari kerja berikutnya.</li>
+            <li>Masukkan nominal atau klik <strong>Tarik Semua</strong>, pilih rekening pada bagian <strong>Rekening tujuan</strong>, lalu tambahkan catatan jika diperlukan.</li>
+            <li>Setelah data lengkap, klik <strong>Cairkan</strong> untuk mengirim pengajuan. Pada screenshot, nominal masih <strong>Rp0</strong> sehingga tombol <strong>Cairkan</strong> belum aktif.</li>
+          </ol>
+          <img src="/images/refunddekstop/2.png" alt="Form pencairan saldo PoolPay Desktop Web dengan nominal dan rekening tujuan" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+
+          <h2 id="dsk-log-pencairan">Melihat Log dan Proses Pencairan</h2>
+          <ol start="6">
+            <li>Setelah pengajuan dikirim, pengajuan akan diperiksa dan dikonfirmasi oleh admin Poolapack. Dana tidak langsung cair otomatis.</li>
+            <li>Buka tab <strong>Penarikan</strong> untuk melihat <strong>Histori Pencairan</strong>, termasuk tanggal, rekening tujuan, nominal, waktu pengajuan, dan status proses.</li>
+            <li>Status <strong>Menunggu Diproses</strong> menunjukkan pengajuan masih dalam pemeriksaan/konfirmasi admin dan belum selesai dicairkan.</li>
+          </ol>
+          <img src="/images/refunddekstop/3.png" alt="Tab Penarikan dan Histori Pencairan pada Desktop Web" class="rounded-xl border border-neutral-200 shadow-sm my-4 w-full" />
+          <div class="callout callout-warning">
+            Minimum pencairan saldo PoolPay adalah <strong>Rp10.000</strong>. Pastikan rekening tujuan sudah terdaftar sebelum mengirim pengajuan.
+          </div>
+        `
+      }
+    ]
   },
 
   // ── Artikel Kategori Produk (Flash Sale, Pre Order, Ready Stock) ──────────

@@ -4,7 +4,7 @@
 
       <!-- Breadcrumb -->
       <nav class="flex items-center gap-2 text-sm mb-8 text-neutral-500" aria-label="Breadcrumb">
-        <NuxtLink to="/" class="hover:text-amber-600 transition-colors flex items-center gap-1.5 font-medium">
+        <NuxtLink to="/" class="hover:text-neutral-900 flex items-center gap-1.5 font-medium">
           <Icon icon="ph:house-bold" class="w-4 h-4" />
           <span>Home</span>
         </NuxtLink>
@@ -13,11 +13,10 @@
       </nav>
 
       <!-- Category Header Card -->
-      <div class="bg-white rounded-lg p-6 sm:p-10 mb-10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-neutral-200/80">
+      <div class="bg-white rounded-xl p-6 sm:p-10 mb-10 border border-neutral-200/90 shadow-sm">
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-md bg-amber-50 flex items-center justify-center text-neutral-900 shrink-0 border border-amber-200/70 shadow-sm">
-            <ShieldFillIcon v-if="category?.slug === 'akun-keamanan' || category?.slug === 'akun-dan-keamanan'" class="w-9 h-9 sm:w-11 sm:h-11 text-neutral-900" />
-            <Icon v-else :icon="getCategoryIcon(category?.slug)" class="w-9 h-9 sm:w-11 sm:h-11 text-neutral-900" />
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-amber-50/70 flex items-center justify-center shrink-0 border border-amber-200/70 shadow-sm">
+            <CategoryCardIcon :slug="category?.slug || ''" size-class="w-10 h-10 sm:w-12 sm:h-12" />
           </div>
           <div class="flex-1">
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2F2E2C] tracking-tight mb-2">
@@ -26,7 +25,7 @@
             <p class="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-3xl">
               {{ category?.description }}
             </p>
-            <div class="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-neutral-600 bg-neutral-50 px-3 py-1.5 rounded-md border border-neutral-200/80">
+            <div class="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-neutral-600 bg-neutral-50 px-3 py-1.5 rounded-lg border border-neutral-200">
               <Icon icon="ph:file-text-bold" class="w-4 h-4 text-amber-500" />
               <span>{{ categoryArticles.length }} Total Artikel Tersedia</span>
             </div>
@@ -50,27 +49,27 @@
           <button
             v-if="selectedSubCategory !== 'all' || searchFilter"
             @click="resetFilters"
-            class="text-xs font-bold text-amber-600 hover:text-amber-700 underline self-start sm:self-auto"
+            class="text-xs font-bold text-amber-600 hover:text-amber-700 underline self-start sm:self-auto cursor-pointer"
           >
             Reset Filter (Lihat Semua)
           </button>
         </div>
 
-        <!-- Subcategory Grid -->
+        <!-- Subcategory Grid (Checkmark hanya pada subkategori yang aktif dipilih) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           <!-- "Semua Topik" Card -->
           <button
             @click="selectedSubCategory = 'all'"
-            class="text-left bg-white rounded-lg p-5 shadow-[0_4px_15px_rgba(0,0,0,0.02)] transition-all duration-200 border cursor-pointer group"
-            :class="selectedSubCategory === 'all' ? 'border-[#F8C031] ring-2 ring-[#F8C031]/30 bg-amber-50/20' : 'border-neutral-100 hover:border-amber-200 '"
+            class="text-left bg-white rounded-xl p-5 border cursor-pointer shadow-sm"
+            :class="selectedSubCategory === 'all' ? 'border-amber-400 bg-amber-50/40 ring-1 ring-amber-300/60' : 'border-neutral-200 hover:border-neutral-300'"
           >
             <div class="flex items-center justify-between">
-              <h3 class="text-base font-bold text-neutral-900 group-hover:text-amber-600 transition-colors">
+              <h3 class="text-base font-bold text-neutral-900">
                 Semua Topik
               </h3>
               <span
-                class="w-5 h-5 rounded-full flex items-center justify-center text-xs"
-                :class="selectedSubCategory === 'all' ? 'bg-[#F8C031] text-neutral-900 font-bold' : 'text-neutral-300'"
+                v-if="selectedSubCategory === 'all'"
+                class="w-5 h-5 rounded-full flex items-center justify-center text-xs bg-[#F8C031] text-neutral-900 font-bold shrink-0"
               >
                 <Icon icon="ph:check-bold" class="w-3.5 h-3.5" />
               </span>
@@ -85,16 +84,16 @@
             v-for="subCat in category.subCategories"
             :key="subCat.id"
             @click="selectedSubCategory = subCat.id"
-            class="text-left bg-white rounded-lg p-5 shadow-[0_4px_15px_rgba(0,0,0,0.02)] transition-all duration-200 border cursor-pointer group"
-            :class="selectedSubCategory === subCat.id ? 'border-[#F8C031] ring-2 ring-[#F8C031]/30 bg-amber-50/20' : 'border-neutral-100 hover:border-amber-200 '"
+            class="text-left bg-white rounded-xl p-5 border cursor-pointer shadow-sm"
+            :class="selectedSubCategory === subCat.id ? 'border-amber-400 bg-amber-50/40 ring-1 ring-amber-300/60' : 'border-neutral-200 hover:border-neutral-300'"
           >
             <div class="flex items-center justify-between">
-              <h3 class="text-base font-bold text-neutral-900 group-hover:text-amber-600 transition-colors">
+              <h3 class="text-base font-bold text-neutral-900">
                 {{ subCat.name }}
               </h3>
               <span
-                class="w-5 h-5 rounded-full flex items-center justify-center text-xs"
-                :class="selectedSubCategory === subCat.id ? 'bg-[#F8C031] text-neutral-900 font-bold' : 'text-neutral-300'"
+                v-if="selectedSubCategory === subCat.id"
+                class="w-5 h-5 rounded-full flex items-center justify-center text-xs bg-[#F8C031] text-neutral-900 font-bold shrink-0"
               >
                 <Icon icon="ph:check-bold" class="w-3.5 h-3.5" />
               </span>
@@ -102,6 +101,47 @@
             <p class="text-xs text-neutral-500 mt-2">
               {{ subCat.articleCount }} artikel
             </p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Role Filter Tabs (Bentuk Simpel & Rapi sesuai instruksi user) -->
+      <div v-if="hasSellerArticles" class="mb-6">
+        <div class="inline-flex items-center p-1 bg-neutral-100/90 rounded-xl border border-neutral-200/80">
+          <button
+            @click="activeRoleTab = 'semua'"
+            :class="[
+              'px-3.5 py-1.5 rounded-lg text-xs font-semibold focus:outline-none cursor-pointer',
+              activeRoleTab === 'semua'
+                ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/70 font-bold'
+                : 'text-neutral-500 hover:text-neutral-800'
+            ]"
+          >
+            Semua ({{ roleTotalCount }})
+          </button>
+          <button
+            @click="activeRoleTab = 'pembeli'"
+            :class="[
+              'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold focus:outline-none cursor-pointer',
+              activeRoleTab === 'pembeli'
+                ? 'bg-white text-amber-800 shadow-sm border border-amber-200/70 font-bold'
+                : 'text-neutral-500 hover:text-neutral-800'
+            ]"
+          >
+            <Icon icon="ph:shopping-bag-bold" class="w-3.5 h-3.5 text-amber-600" />
+            <span>Untuk Pooler ({{ countForRole('pembeli') }})</span>
+          </button>
+          <button
+            @click="activeRoleTab = 'penjual'"
+            :class="[
+              'flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold focus:outline-none cursor-pointer',
+              activeRoleTab === 'penjual'
+                ? 'bg-white text-amber-800 shadow-sm border border-amber-200/70 font-bold'
+                : 'text-neutral-500 hover:text-neutral-800'
+            ]"
+          >
+            <Icon icon="ph:storefront-bold" class="w-3.5 h-3.5 text-amber-600" />
+            <span>Untuk Packer ({{ countForRole('penjual') }})</span>
           </button>
         </div>
       </div>
@@ -126,48 +166,63 @@
             v-model="searchFilter"
             type="text"
             placeholder="Cari dalam topik ini..."
-            class="w-full pl-9 pr-4 py-2 bg-white border border-neutral-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#F8C031] focus:border-transparent transition-colors duration-100"
+            class="w-full pl-9 pr-4 py-2 bg-white border border-neutral-200 rounded-lg text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#F8C031] focus:border-transparent"
           />
         </div>
       </div>
 
       <!-- Articles List -->
-      <div v-if="filteredArticles.length > 0" class="bg-white rounded-lg shadow-[0_4px_15px_rgba(0,0,0,0.02)] border border-neutral-200/80 divide-y divide-neutral-100 overflow-hidden">
+      <div v-if="filteredArticles.length > 0" class="bg-white rounded-xl border border-neutral-200 divide-y divide-neutral-100 overflow-hidden shadow-sm">
         <NuxtLink
           v-for="(article, index) in filteredArticles"
           :key="article.id"
           :to="`/article/${article.slug}`"
-          class="block px-6 sm:px-8 py-5 sm:py-6 hover:bg-neutral-50/80 transition-colors group"
+          class="block px-6 sm:px-8 py-5 sm:py-6 hover:bg-neutral-50/70"
         >
           <div class="flex items-start justify-between gap-4">
             <div class="flex-1">
-              <div class="flex items-center gap-3 mb-2">
+              <div class="flex flex-wrap items-center gap-2.5 mb-2">
                 <span class="text-sm font-extrabold text-amber-500/80 w-5">{{ index + 1 }}</span>
-                <h3 class="text-base sm:text-lg font-bold text-neutral-900 group-hover:text-amber-600 transition-colors">
+                <h3 class="text-base sm:text-lg font-bold text-neutral-900">
                   {{ article.title }}
                 </h3>
+                <!-- Role Badge: Menghilangkan ambiguitas audiens artikel -->
+                <span
+                  v-if="article.audience === 'penjual'"
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200/80 shrink-0"
+                >
+                  <Icon icon="ph:storefront-bold" class="w-3 h-3" />
+                  Untuk Packer
+                </span>
+                <span
+                  v-else-if="article.audience === 'pembeli'"
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium bg-neutral-100 text-neutral-700 border border-neutral-200 shrink-0"
+                >
+                  <Icon icon="ph:shopping-bag-bold" class="w-3 h-3" />
+                  Untuk Pooler
+                </span>
               </div>
-              <p class="text-sm text-neutral-600 leading-relaxed line-clamp-2 ml-8">
+              <p class="text-sm text-neutral-600 leading-relaxed line-clamp-2 ml-7.5">
                 {{ article.excerpt }}
               </p>
-              <div class="flex items-center gap-2 mt-3 ml-8 text-xs text-neutral-500 font-medium">
+              <div class="flex items-center gap-2 mt-3 ml-7.5 text-xs text-neutral-500 font-medium">
                 <Icon icon="ph:clock-bold" class="w-3.5 h-3.5 text-neutral-400" />
                 <span>{{ article.readTime }} menit baca</span>
               </div>
             </div>
-            <Icon icon="ph:caret-right-bold" class="w-5 h-5 text-neutral-300 group-hover:text-amber-500 transition-colors shrink-0 mt-2" />
+            <Icon icon="ph:caret-right-bold" class="w-5 h-5 text-neutral-300 shrink-0 mt-2" />
           </div>
         </NuxtLink>
       </div>
 
       <!-- Empty State within Category -->
-      <div v-else class="text-center py-12 px-4 bg-white rounded-lg border border-dashed border-neutral-200">
+      <div v-else class="text-center py-12 px-4 bg-white rounded-xl border border-dashed border-neutral-200">
         <p class="text-neutral-500 text-sm mb-4">
           Tidak ada artikel yang sesuai dengan filter pencarian ini.
         </p>
         <button
           @click="resetFilters"
-          class="px-5 py-2 rounded-lg bg-amber-50 text-amber-800 font-bold text-xs hover:bg-amber-100 transition-colors duration-100"
+          class="px-5 py-2 rounded-lg bg-amber-50 text-amber-800 font-bold text-xs hover:bg-amber-100 cursor-pointer"
         >
           Tampilkan Semua Artikel
         </button>
@@ -180,8 +235,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute } from 'nuxt/app'
-import ShieldFillIcon from '@iconify-vue/ph/shield-fill'
 import { getCategoryBySlug, getArticlesByCategory } from '~/data/content'
+import CategoryCardIcon from '~/components/common/CategoryCardIcon.vue'
 
 const route = useRoute()
 const categorySlug = computed(() => route.params.slug as string)
@@ -189,39 +244,49 @@ const categorySlug = computed(() => route.params.slug as string)
 const category = computed(() => getCategoryBySlug(categorySlug.value))
 const categoryArticles = computed(() => getArticlesByCategory(categorySlug.value))
 
+const hasSellerArticles = computed(() => {
+  return categoryArticles.value.some(art => art.audience === 'penjual')
+})
+
 // Interactive filter states
 const selectedSubCategory = ref<string>('all')
 const searchFilter = ref<string>('')
+const activeRoleTab = ref<'semua' | 'pembeli' | 'penjual'>(
+  route.query.role === 'penjual' && hasSellerArticles.value ? 'penjual' : (route.query.role === 'pembeli' ? 'pembeli' : 'semua')
+)
+
+// Base articles filtered by selected subcategory
+const baseArticlesForRole = computed(() => {
+  if (selectedSubCategory.value === 'all') return categoryArticles.value
+  return categoryArticles.value.filter(art => art.subCategoryId === selectedSubCategory.value)
+})
+
+const roleTotalCount = computed(() => baseArticlesForRole.value.length)
+
+const countForRole = (role: 'pembeli' | 'penjual') => {
+  return baseArticlesForRole.value.filter(art => {
+    if (role === 'penjual') {
+      return art.audience === 'penjual' || art.audience === 'semua'
+    }
+    return (art.audience ?? 'pembeli') === 'pembeli' || art.audience === 'semua'
+  }).length
+}
 
 const resetFilters = () => {
   selectedSubCategory.value = 'all'
   searchFilter.value = ''
+  activeRoleTab.value = 'semua'
 }
 
-const getCategoryIcon = (slug?: string): string => {
-  switch (slug) {
-    case 'akun-keamanan':
-    case 'akun-dan-keamanan':
-      return 'ph:shield-user-bold'
-    case 'pesanan':
-      return 'ph:clipboard-text-bold'
-    case 'pembayaran':
-      return 'ph:wallet-bold'
-    case 'pengiriman':
-      return 'ph:truck-bold'
-    case 'promo':
-    case 'promo-voucher':
-      return 'ph:gift-bold'
-    case 'kategori-produk':
-      return 'ph:tag-bold'
-    default:
-      return 'ph:squares-four-bold'
-  }
-}
-
-// Reactive filtered list based on subcategory and keyword
+// Reactive filtered list based on subcategory, keyword, and role
 const filteredArticles = computed(() => {
   let list = categoryArticles.value
+
+  if (activeRoleTab.value === 'pembeli') {
+    list = list.filter(art => (art.audience ?? 'pembeli') === 'pembeli' || art.audience === 'semua')
+  } else if (activeRoleTab.value === 'penjual') {
+    list = list.filter(art => art.audience === 'penjual' || art.audience === 'semua')
+  }
 
   if (selectedSubCategory.value !== 'all') {
     list = list.filter(art => art.subCategoryId === selectedSubCategory.value)

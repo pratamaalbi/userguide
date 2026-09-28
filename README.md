@@ -392,7 +392,7 @@ userguidepoolapack/
 | 19 | `estimasi-waktu-pengiriman` | Estimasi Waktu dan Jadwal Operasional Pengiriman | Pengiriman | Pooler |
 | 20 | `cara-verifikasi-identitas` | Cara Mendapatkan Diskon Sebesar 1% dengan Verifikasi Identitas (KTP / NPWP) | Promo & Reward | Pooler |
 | 21 | `apa-itu-poolpoint` | Apa Itu PoolPoint dan Cara Menggunakannya? | Promo & Reward | Pooler |
-| 22 | `apa-itu-poolpay` | Apa Itu PoolPay dan Cara Menggunakan Saldo PoolPay? | Promo & Reward | Pooler |
+| 22 | `apa-itu-poolpay` | Bagaimana cara mencairkan saldo poolpay? | Promo & Reward | Pooler |
 | 23 | `flash-sale-poolapack` | Apa Itu Flash Sale di Poolapack? | Kategori Produk | Pooler |
 | 24 | `pre-order-poolapack` | Panduan Pre Order (PO): Cara Pesan, Bayar Bertahap, dan Sistem Toleransi | Kategori Produk | Pooler |
 | 25 | `ready-stock-poolapack` | Panduan Ready Stock: MOQ, Stok Tersedia, dan Cara Membeli | Kategori Produk | Pooler |

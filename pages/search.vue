@@ -26,10 +26,13 @@
               v-for="cat in categories"
               :key="cat.id"
               :to="`/category/${cat.slug}`"
-              class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 transition-colors duration-100 group"
+              class="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
             >
-              <span class="truncate group-hover:text-amber-700">{{ cat.title }}</span>
-              <Icon icon="ph:caret-right-bold" class="w-3.5 h-3.5 text-neutral-300 group-hover:text-amber-600 transition-colors" />
+              <div class="flex items-center gap-2 truncate">
+                <CategoryCardIcon :slug="cat.slug" size-class="w-4 h-4" />
+                <span class="truncate">{{ cat.title }}</span>
+              </div>
+              <Icon icon="ph:caret-right-bold" class="w-3.5 h-3.5 text-neutral-300 shrink-0" />
             </NuxtLink>
           </div>
         </aside>
@@ -43,12 +46,12 @@
               v-for="tab in ['Untuk Pooler (Pembeli)', 'Untuk Packer (Penjual)']"
               :key="tab"
               @click="activeTab = tab"
-              class="relative pb-3 text-xs sm:text-sm font-bold whitespace-nowrap transition-colors duration-100 focus:outline-none flex items-center gap-1.5"
+              class="relative pb-3 text-xs sm:text-sm font-bold whitespace-nowrap focus:outline-none flex items-center gap-1.5"
               :class="activeTab === tab ? 'text-amber-600' : 'text-neutral-500 hover:text-neutral-800'"
             >
               {{ tab }}
               <span
-                class="text-[10px] font-bold px-1.5 py-0.5 rounded-md transition-colors duration-100"
+                class="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
                 :class="activeTab === tab ? 'bg-amber-100 text-amber-700' : 'bg-neutral-100 text-neutral-400'"
               >
                 {{ tabArticleCount(tab) }}
@@ -93,7 +96,7 @@
                 </div>
 
                 <h2
-                  class="text-base sm:text-lg font-bold text-neutral-900 group-hover:text-amber-600 transition-colors mb-1.5 leading-snug"
+                  class="text-base sm:text-lg font-bold text-neutral-900 mb-1.5 leading-snug"
                   v-html="highlightText(result.title)"
                 ></h2>
 
@@ -106,7 +109,7 @@
           </div>
 
           <!-- Empty State when no results found -->
-          <div v-else class="text-center py-14 px-4 bg-neutral-50 rounded-lg border border-dashed border-neutral-200 my-4">
+          <div v-else class="text-center py-14 px-4 bg-neutral-50 rounded-xl border border-dashed border-neutral-200 my-4">
             <div class="w-12 h-12 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mx-auto mb-3">
               <Icon icon="ph:magnifying-glass-bold" class="w-6 h-6 text-amber-700" />
             </div>
@@ -121,7 +124,7 @@
                 v-for="suggest in ['Cara Daftar', 'Daftar Packer', 'PoolPoint', 'PoolPay', 'Pre Order', 'Flash Sale', 'Ready Stock', 'Lacak Pesanan']"
                 :key="suggest"
                 @click="applySuggestion(suggest)"
-                class="px-3 py-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-700 text-xs font-semibold hover:border-amber-400 hover:text-amber-800 transition-colors duration-100 shadow-2xs"
+                class="px-3 py-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-700 text-xs font-semibold hover:border-amber-400 hover:text-amber-800"
               >
                 {{ suggest }}
               </button>
@@ -138,6 +141,7 @@
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'nuxt/app'
 import { searchArticles, articles, categories } from '~/data/content'
+import CategoryCardIcon from '~/components/common/CategoryCardIcon.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -148,7 +152,9 @@ useHead({
   title: computed(() => query.value ? `Pencarian: ${query.value} - Poolapack Care` : 'Poolapack Care')
 })
 
-const activeTab = ref('Untuk Pooler (Pembeli)')
+const activeTab = ref(
+  route.query.role === 'penjual' ? 'Untuk Packer (Penjual)' : 'Untuk Pooler (Pembeli)'
+)
 
 // Dynamic search results from smart fuzzy content search
 const searchResults = computed(() => {

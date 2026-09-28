@@ -3,7 +3,7 @@
 
     <!-- Top Reading Progress Bar -->
     <div
-      class="fixed top-0 left-0 h-1 bg-gradient-to-r from-[#F8C031] to-[#EA580C] z-50 transition-all duration-150"
+      class="fixed top-0 left-0 h-1 bg-[#F8C031] z-50"
       :style="{ width: `${readingProgress}%` }"
     ></div>
 
@@ -11,7 +11,7 @@
 
       <!-- Breadcrumbs -->
       <nav class="flex flex-wrap items-center gap-2 text-sm mb-8 text-neutral-500" aria-label="Breadcrumb">
-        <NuxtLink to="/" class="hover:text-amber-600 transition-colors flex items-center gap-1.5 font-medium">
+        <NuxtLink to="/" class="hover:text-neutral-900 flex items-center gap-1.5 font-medium">
           <Icon icon="ph:house-bold" class="w-4 h-4" />
           <span>Home</span>
         </NuxtLink>
@@ -19,7 +19,7 @@
         <NuxtLink
           v-if="category"
           :to="`/category/${category.slug}`"
-          class="hover:text-amber-600 transition-colors font-medium"
+          class="hover:text-neutral-900 font-medium"
         >
           {{ category.title }}
         </NuxtLink>
@@ -32,7 +32,7 @@
 
         <!-- Article Main Container (8 cols) -->
         <main class="lg:col-span-8 w-full" ref="articleContainer">
-          <article class="bg-white rounded-lg p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-neutral-200/80">
+          <article class="bg-white rounded-xl p-6 sm:p-10 border border-neutral-200 shadow-sm">
 
             <!-- Category Badge & Read Time Meta -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-6 border-b border-neutral-100">
@@ -40,10 +40,9 @@
                 <NuxtLink
                   v-if="category"
                   :to="`/category/${category.slug}`"
-                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-50 border border-amber-200/90 text-amber-800 text-xs font-bold hover:bg-amber-100 transition-colors duration-100"
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-50 border border-amber-200/90 text-amber-800 text-xs font-bold hover:bg-amber-100"
                 >
-                  <ShieldFillIcon v-if="category.slug === 'akun-keamanan' || category.slug === 'akun-dan-keamanan'" class="w-3.5 h-3.5" />
-                  <Icon v-else :icon="getCategoryIcon(category.slug)" class="w-3.5 h-3.5" />
+                  <CategoryCardIcon :slug="category.slug" size-class="w-3.5 h-3.5" />
                   <span>{{ category.title }}</span>
                 </NuxtLink>
                 <div class="flex items-center gap-1.5 text-xs text-neutral-500 font-medium">
@@ -72,7 +71,7 @@
                   v-for="(platform, index) in article.platforms"
                   :key="index"
                   @click="activePlatform = index"
-                  class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all duration-150 focus:outline-none"
+                  class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold focus:outline-none"
                   :class="activePlatform === index
                     ? 'bg-white text-neutral-900 shadow-sm border border-neutral-200/80'
                     : 'text-neutral-500 hover:text-neutral-700 hover:bg-white/50'"
@@ -117,10 +116,10 @@
                 v-for="rel in relatedArticles"
                 :key="rel.id"
                 :to="`/article/${rel.slug}`"
-                class="bg-white rounded-lg p-5 shadow-[0_4px_15px_rgba(0,0,0,0.02)] hover:shadow-sm border border-neutral-100 hover:border-amber-200 transition-colors duration-150 group flex flex-col justify-between"
+                class="bg-white rounded-xl p-5 border border-neutral-200 hover:border-neutral-300 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <h4 class="font-bold text-neutral-900 group-hover:text-amber-600 transition-colors text-base mb-2 line-clamp-2">
+                  <h4 class="font-bold text-neutral-900 text-base mb-2 line-clamp-2">
                     {{ rel.title }}
                   </h4>
                   <p class="text-xs text-neutral-500 line-clamp-2 leading-relaxed">
@@ -149,7 +148,7 @@
           <!-- When article has platform tabs: show active platform's TOC if it has one, else fall back to article-level TOC -->
           <div
             v-if="activeToc && activeToc.length > 0"
-            class="bg-white rounded-lg p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-neutral-200/80"
+            class="bg-white rounded-xl p-5 sm:p-6 border border-neutral-200 shadow-sm"
           >
             <h3 class="text-xs font-extrabold uppercase tracking-wider text-neutral-400 mb-3 flex items-center gap-2">
               <Icon icon="ph:list-bullets-bold" class="w-4 h-4 text-amber-500" />
@@ -160,8 +159,8 @@
                 <a
                   :href="`#${item.id}`"
                   @click.prevent="scrollToSection(item.id)"
-                  class="block py-1.5 px-3 rounded-md font-medium transition-colors duration-100"
-                  :class="activeSection === item.id ? 'bg-amber-100/70 text-amber-900 font-bold' : 'text-neutral-600 hover:text-amber-600 hover:bg-amber-50/50'"
+                  class="block py-1.5 px-3 rounded-md font-medium"
+                  :class="activeSection === item.id ? 'bg-amber-100/70 text-amber-900 font-bold' : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50'"
                 >
                   {{ item.text }}
                 </a>
@@ -169,9 +168,9 @@
             </ul>
           </div>
 
-          <!-- Quick Help / Customer Service Card (Liva Soft Tint Theme) -->
-          <div class="bg-gradient-to-br from-amber-50/90 via-[#FFFDF7] to-amber-100/40 rounded-lg p-5 sm:p-6 border border-amber-200/90 shadow-sm text-neutral-900">
-            <div class="w-10 h-10 rounded-md bg-[#F8C031] flex items-center justify-center mb-3.5 shadow-sm text-neutral-900">
+          <!-- Quick Help / Customer Service Card -->
+          <div class="bg-amber-50/70 rounded-xl p-5 sm:p-6 border border-amber-200 text-neutral-900">
+            <div class="w-10 h-10 rounded-md bg-[#F8C031] flex items-center justify-center mb-3.5 text-neutral-900">
               <Icon icon="ph:headset-bold" class="w-5 h-5 text-neutral-900" />
             </div>
             <h4 class="text-base sm:text-lg font-bold mb-1.5 leading-snug text-neutral-900">
@@ -181,10 +180,10 @@
               Punya kendala pesanan atau ingin konsultasi transaksi? Tim Poolapack siap membantu Anda.
             </p>
             <a
-              href="https://liva.poolapack.id/"
+              href="https://api.whatsapp.com/send/?phone=628112380989&text=Halo+Poolapack%2C+saya+ingin+bertanya+mengenai+&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#F8C031] hover:bg-[#F5B400] text-neutral-900 font-bold text-xs sm:text-sm shadow-sm transition-colors duration-100"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#F8C031] hover:bg-[#F5B400] text-neutral-900 font-bold text-xs sm:text-sm"
             >
               <span>Hubungi CS Poolapack</span>
               <Icon icon="ph:arrow-right-bold" class="w-3.5 h-3.5" />
@@ -202,8 +201,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'nuxt/app'
-import ShieldFillIcon from '@iconify-vue/ph/shield-fill'
 import { getArticleBySlug, getCategoryBySlug, getRelatedArticles } from '~/data/content'
+import CategoryCardIcon from '~/components/common/CategoryCardIcon.vue'
 
 const route = useRoute()
 const articleSlug = computed(() => route.params.slug as string)
@@ -214,27 +213,6 @@ const relatedArticles = computed(() => {
   if (!article.value) return []
   return getRelatedArticles(article.value.slug, article.value.category, 4)
 })
-
-const getCategoryIcon = (slug?: string): string => {
-  switch (slug) {
-    case 'akun-keamanan':
-    case 'akun-dan-keamanan':
-      return 'ph:shield-user-bold'
-    case 'pesanan':
-      return 'ph:clipboard-text-bold'
-    case 'pembayaran':
-      return 'ph:wallet-bold'
-    case 'pengiriman':
-      return 'ph:truck-bold'
-    case 'promo':
-    case 'promo-voucher':
-      return 'ph:gift-bold'
-    case 'kategori-produk':
-      return 'ph:tag-bold'
-    default:
-      return 'ph:squares-four-bold'
-  }
-}
 
 // 404 if article is not found
 if (!article.value) {

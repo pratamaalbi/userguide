@@ -1,0 +1,20 @@
+# Anti-Slop Guidelines (adapted from miqdadbadjuber/anti-slop)
+
+## UI & Design Rules
+- Avoid the generic "AI SaaS" aesthetic: no purple/indigo gradients, no random blur glow balls, no excessive glassmorphism.
+- Use intentional brand colors (Poolapack Amber `#F8C031`, `#F5B400`, clean neutrals/slate).
+- Use proportionate border radii (`rounded-lg`, `rounded-xl`, `rounded-md`), avoid `rounded-3xl` everywhere.
+- No decorative emojis/sparkles (✨) or placeholder badges ("AI Powered").
+- Real, natural copywriting: avoid AI buzzwords ("revolutionize", "seamless", "delve", "elevate", "cutting-edge"). Use clear Indonesian.
+- Ensure proper accessibility (WCAG AA contrast, focus-visible states) and true mobile responsiveness.
+
+## Code & Architecture Rules
+- Keep diffs minimal and surgical. Only touch what was asked.
+- No obvious/useless comments explaining what line does; only comment the "why".
+- KISS & YAGNI: do not over-engineer with unnecessary wrappers, abstractions, or factory layers.
+- Do not add new npm packages unless strictly necessary.
+- Follow Nuxt 3 & Vue 3 conventions: `<script setup lang="ts">`, Composition API, auto-imports, Tailwind CSS.
+- Real error handling: do not swallow errors in empty catch blocks.
+
+## Communication
+- Be direct, concise, and objective. Avoid sycophancy and filler pleasantries.

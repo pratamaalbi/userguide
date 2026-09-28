@@ -24,8 +24,8 @@
           <div class="space-y-1 text-xs sm:text-sm text-neutral-600">
             <p>
               Email:
-              <a href="mailto:info@poolapack.com" class="text-neutral-700 hover:text-primary-600 transition-colors font-medium">
-                info@poolapack.com
+              <a href="mailto:support@poolapack.com" class="text-neutral-700 hover:text-primary-600 font-medium">
+                support@poolapack.com
               </a>
             </p>
             <p class="text-neutral-600 leading-relaxed md:ml-auto max-w-md">
