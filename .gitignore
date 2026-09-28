@@ -14,3 +14,8 @@ logs
 .env
 .env.*
 !.env.example
+
+# Local-only project guidance
+.cursorrules
+CLAUDE.md
+AUDIT-UX-POOLAPACK-CARE.md
